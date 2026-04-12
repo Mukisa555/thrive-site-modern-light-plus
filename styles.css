@@ -411,7 +411,7 @@ img{max-width:100%;display:block}
   .hero{padding:3.5rem 0 2.8rem}
   .page-hero{padding:2.8rem 0 1.7rem}
   .hero h1,.page-hero h1{
-    font-size:clamp(1.75rem,6.8vw,2.45rem);
+    font-size:clamp(1.42rem,5.4vw,1.9rem);
     line-height:1.08;
     letter-spacing:-.03em;
     margin-bottom:.85rem;
@@ -423,7 +423,7 @@ img{max-width:100%;display:block}
   }
   .hero-note,.section p,.panel-card li,.list li{font-size:.95rem}
   .feature-card h3,.audience-card h3,.content-card h3,.quote-card h3,.pricing-card h3,.timeline-card h3,.table-card h3{
-    font-size:1.08rem;
+    font-size:.94rem;
   }
   .hero-copy,.section-heading{padding-inline:.15rem}
   .section{padding:3.4rem 0}
@@ -454,7 +454,7 @@ img{max-width:100%;display:block}
   .hero-card.main{border-radius:18px}
   .section{padding:2.75rem 0}
   .hero h1,.page-hero h1{
-    font-size:clamp(1.55rem,8vw,2.05rem);
+    font-size:clamp(1.22rem,6.2vw,1.52rem);
     line-height:1.1;
     margin-bottom:.75rem;
   }
@@ -462,9 +462,9 @@ img{max-width:100%;display:block}
     font-size:.9rem;
     line-height:1.6;
   }
-  .section h2{font-size:clamp(1.45rem,7vw,1.9rem)}
+  .section h2{font-size:clamp(1.16rem,5.6vw,1.42rem)}
   .feature-card h3,.audience-card h3,.content-card h3,.quote-card h3,.pricing-card h3,.timeline-card h3,.table-card h3{
-    font-size:.96rem;
+    font-size:.84rem;
   }
   .hero-copy,.section-heading{padding-inline:.1rem}
   .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card{padding:1.1rem}
