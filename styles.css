@@ -207,6 +207,62 @@ img{max-width:100%;display:block}
 .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card,.image-card{padding:1.55rem}
 .image-card{padding:0;overflow:hidden}
 .image-card img{width:100%;height:100%;object-fit:cover}
+.feature-image{
+  width:100%;
+  display:block;
+  margin-bottom:1.1rem;
+  border-radius:18px;
+  object-fit:cover;
+  box-shadow:var(--shadow-soft);
+}
+.media-story{
+  display:grid;
+  gap:1rem;
+}
+.balanced-columns{
+  align-items:stretch;
+}
+.split-card{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.split-card--copy{
+  justify-content:center;
+}
+.split-card--media{
+  gap:1rem;
+}
+.split-visual{
+  flex:0 0 auto;
+}
+.media-frame{
+  padding:.9rem;
+  background:linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(247,251,255,.94) 100%);
+  border:1px solid rgba(216,231,239,.95);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+.media-frame img{
+  width:100%;
+  display:block;
+  border-radius:20px;
+  object-fit:cover;
+}
+.media-frame.portrait img{aspect-ratio:4 / 3}
+.media-frame.square img{aspect-ratio:6 / 5}
+.media-note{
+  display:grid;
+  align-content:start;
+  gap:.9rem;
+}
+.media-note .eyebrow,
+.media-note h3,
+.media-note p,
+.media-note ul{
+  margin:0;
+}
+.media-note h3{font-size:1.3rem}
 .panel-card{
   background:linear-gradient(180deg,#ffffff 0%, #f6fcff 100%);
 }
@@ -409,7 +465,7 @@ img{max-width:100%;display:block}
   }
   .card-grid.two{grid-template-columns:1fr}
   .hero{padding:3.5rem 0 2.8rem}
-  .page-hero{padding:2.8rem 0 1.7rem}
+  .page-hero{padding:2.4rem 0 1.2rem}
   .hero h1,.page-hero h1{
     font-size:clamp(1.42rem,5.4vw,1.9rem);
     line-height:1.08;
@@ -426,12 +482,45 @@ img{max-width:100%;display:block}
     font-size:.94rem;
   }
   .hero-copy,.section-heading{padding-inline:.15rem}
-  .section{padding:3.4rem 0}
+  .section{padding:3rem 0}
   .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card,.image-card{padding:1.25rem}
   .image-card{padding:0}
+  .image-card img{
+    height:auto;
+    max-height:420px;
+    object-fit:contain;
+    object-position:center;
+    background:#fff;
+  }
+  .split-card--media{
+    padding:.85rem;
+  }
+  .media-frame{
+    padding:.45rem;
+  }
+  .media-frame img,
+  .media-frame.portrait img,
+  .media-frame.square img{
+    aspect-ratio:auto;
+    height:auto;
+    max-height:360px;
+    object-fit:contain;
+    object-position:center;
+    background:#fff;
+  }
+  .media-note{
+    gap:.7rem;
+  }
+  .media-note h3{
+    font-size:1.08rem;
+  }
   .hero-card.small-top,.hero-card.small-bottom,.hero-chip{display:none}
   .hero-card.main{inset:0}
-  .hero-visual{min-height:320px}
+  .hero-card.main img{
+    object-fit:contain;
+    background:#fff;
+  }
+  .hero-visual{min-height:290px}
   .highlight-block{padding:1.35rem;border-radius:24px}
   .trust-item,.metric-card,.mini-card{padding:1.15rem}
   .callout-actions,.hero-actions{flex-direction:column}
@@ -449,10 +538,10 @@ img{max-width:100%;display:block}
   .nav-links a{font-size:.84rem;padding:.72rem .04rem}
   .container,.nav-container{width:min(var(--container),calc(100% - 1.5rem))}
   .hero{padding:2.8rem 0 2.1rem}
-  .page-hero{padding:2.35rem 0 1.35rem}
+  .page-hero{padding:2rem 0 1rem}
   .hero-visual{min-height:240px}
   .hero-card.main{border-radius:18px}
-  .section{padding:2.75rem 0}
+  .section{padding:2.35rem 0}
   .hero h1,.page-hero h1{
     font-size:clamp(1.22rem,6.2vw,1.52rem);
     line-height:1.1;
@@ -468,6 +557,31 @@ img{max-width:100%;display:block}
   }
   .hero-copy,.section-heading{padding-inline:.1rem}
   .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card{padding:1.1rem}
+  .image-card img{
+    max-height:340px;
+  }
+  .split-card--media{
+    padding:.72rem;
+  }
+  .media-frame{
+    padding:.35rem;
+    border-radius:20px;
+  }
+  .media-frame img,
+  .media-frame.portrait img,
+  .media-frame.square img{
+    max-height:300px;
+    border-radius:16px;
+  }
+  .media-note{
+    gap:.6rem;
+  }
+  .media-note h3{
+    font-size:1rem;
+  }
+  .hero-card.main img{
+    max-height:250px;
+  }
   .highlight-block{padding:1.2rem;border-radius:20px}
   .trust-strip{padding:.5rem 0 1.5rem}
   .trust-item,.metric-card,.mini-card{padding:1rem}
