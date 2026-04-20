@@ -392,6 +392,78 @@ img{max-width:100%;display:block}
 .two-column > .image-card{
   align-self:stretch;
 }
+.page-contact .two-column.balanced-columns{
+  grid-template-columns:.98fr 1.02fr;
+  gap:1rem;
+  align-items:start;
+}
+.page-contact .split-card{
+  padding:1.35rem;
+}
+.page-contact .split-card--copy{
+  justify-content:flex-start;
+  gap:1rem;
+}
+.page-contact .split-card--copy .list{
+  margin-top:.25rem;
+}
+.page-contact .split-card--media{
+  gap:.85rem;
+}
+.page-contact .split-card--media .media-frame{
+  padding:.7rem;
+}
+.page-contact .media-frame.portrait img{
+  aspect-ratio:16 / 10;
+  max-height:280px;
+}
+.page-contact .media-note{
+  gap:.7rem;
+}
+.page-contact .media-note h3{
+  font-size:1.15rem;
+  line-height:1.25;
+}
+.page-contact .media-note .list,
+.page-contact .split-card--copy .list{
+  gap:.7rem;
+}
+.page-contact .media-note .list li,
+.page-contact .split-card--copy .list li{
+  padding:.85rem .95rem;
+}
+.page-contact .contact-cta{
+  margin-top:.35rem;
+  padding-top:1rem;
+  display:grid;
+  gap:.85rem;
+}
+.page-contact .contact-cta p{
+  margin:0;
+  font-size:.95rem;
+}
+.page-contact .contact-cta .card-actions{
+  padding-top:0;
+}
+.page-contact .contact-cta .btn{
+  flex:1 1 180px;
+}
+.page-impact .split-card--copy{
+  justify-content:flex-start;
+  gap:1rem;
+}
+.page-impact .split-card .card-actions{
+  margin-top:.35rem;
+  padding-top:0;
+}
+.page-partnerships .split-card--copy{
+  justify-content:flex-start;
+  gap:1rem;
+}
+.page-partnerships .split-card--copy .card-actions{
+  margin-top:.35rem;
+  padding-top:0;
+}
 .price{font-size:2rem;font-weight:800;color:var(--primary);margin:.2rem 0 .5rem}
 .price-note{font-size:.92rem;color:var(--muted);margin-bottom:.85rem}
 .table-card table{width:100%;border-collapse:collapse}
@@ -420,6 +492,17 @@ img{max-width:100%;display:block}
 .footer-text{max-width:360px}
 .site-footer h4{margin-bottom:1rem;color:var(--text)}
 .footer-links{list-style:none;display:grid;gap:.7rem}
+.footer-bottom{
+  margin-top:2rem;
+  padding-top:1.25rem;
+  border-top:1px solid rgba(123,152,176,.35);
+  text-align:center;
+}
+.footer-bottom p{
+  margin:0;
+  color:var(--muted);
+  font-size:.95rem;
+}
 @media (min-width:1280px){
   .page-partnerships .container,
   .page-partnerships .nav-container{
@@ -505,6 +588,20 @@ img{max-width:100%;display:block}
   .highlight-block{padding:1.6rem}
   .table-card{overflow-x:auto}
   .table-card table{min-width:680px}
+  .page-contact .two-column.balanced-columns{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .page-contact .split-card{
+    height:auto;
+  }
+  .page-contact .split-card--media{
+    gap:1rem;
+  }
+  .page-contact .media-frame.portrait img{
+    aspect-ratio:16 / 9;
+    max-height:240px;
+  }
 }
 @media (max-width:820px){
   .navbar{
@@ -658,6 +755,37 @@ img{max-width:100%;display:block}
   .callout-actions,.hero-actions{flex-direction:column}
   .callout-actions .btn,.hero-actions .btn,.card-actions .btn{width:100%}
   .footer-grid{gap:1.75rem}
+  .page-contact .section{
+    padding:2.6rem 0;
+  }
+  .page-contact .split-card{
+    padding:1.15rem;
+  }
+  .page-contact .split-card--copy{
+    gap:.85rem;
+  }
+  .page-contact .split-card--media{
+    padding:1.15rem;
+  }
+  .page-contact .split-card--media .media-frame{
+    padding:.55rem;
+  }
+  .page-contact .media-frame.portrait img{
+    max-height:200px;
+  }
+  .page-contact .media-note{
+    gap:.6rem;
+  }
+  .page-contact .media-note h3{
+    font-size:1rem;
+  }
+  .page-contact .media-note .list li,
+  .page-contact .split-card--copy .list li{
+    padding:.8rem .9rem;
+  }
+  .page-contact .contact-cta{
+    margin-top:.25rem;
+  }
 }
 @media (max-width:560px){
   body{line-height:1.65}
@@ -722,4 +850,51 @@ img{max-width:100%;display:block}
   .btn,.nav-cta .btn-primary{min-height:48px}
   .footer-brand{align-items:flex-start}
   .footer-text{max-width:none}
+  .page-contact .page-hero{
+    padding:1.7rem 0 .85rem;
+  }
+  .page-contact .section{
+    padding:1.9rem 0;
+  }
+  .page-contact .split-card{
+    padding:1rem;
+    border-radius:22px;
+  }
+  .page-contact .split-card--copy,
+  .page-contact .split-card--media{
+    gap:.75rem;
+  }
+  .page-contact .split-card--media{
+    padding:1rem;
+  }
+  .page-contact .split-card--media .media-frame{
+    padding:.35rem;
+    border-radius:18px;
+  }
+  .page-contact .media-frame.portrait img{
+    max-height:160px;
+    border-radius:14px;
+  }
+  .page-contact .media-note h3{
+    font-size:.92rem;
+    line-height:1.25;
+  }
+  .page-contact .media-note .eyebrow{
+    font-size:.72rem;
+  }
+  .page-contact .media-note .list,
+  .page-contact .split-card--copy .list{
+    gap:.6rem;
+  }
+  .page-contact .media-note .list li,
+  .page-contact .split-card--copy .list li{
+    padding:.72rem .82rem;
+    font-size:.9rem;
+  }
+  .page-contact .contact-cta{
+    gap:.7rem;
+  }
+  .page-contact .contact-cta p{
+    font-size:.88rem;
+  }
 }
