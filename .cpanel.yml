@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/dignifiedug/public_html/
+    - export DEPLOYPATH=/home/dignifiedug/thrivepath.dignifiedug.org
     - /bin/cp -R * $DEPLOYPATH
