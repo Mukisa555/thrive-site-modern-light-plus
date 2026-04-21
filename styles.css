@@ -619,6 +619,191 @@ p.eyebrow::before,
 }
 .price{font-size:2rem;font-weight:800;color:var(--primary);margin:.2rem 0 .5rem}
 .price-note{font-size:.92rem;color:var(--muted);margin-bottom:.85rem}
+.page-partnerships .pricing-showcase .section-heading{
+  position:relative;
+  z-index:2;
+  margin-bottom:1.65rem;
+}
+.page-partnerships .pricing-showcase .section-heading p{
+  max-width:700px;
+  margin-inline:auto;
+}
+.page-partnerships .pricing-showcase{
+  position:relative;
+  isolation:isolate;
+}
+.page-partnerships .pricing-showcase::before,
+.page-partnerships .pricing-showcase::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  border-radius:50%;
+  pointer-events:none;
+}
+.page-partnerships .pricing-showcase::before{
+  width:320px;
+  height:320px;
+  top:70px;
+  left:-90px;
+  background:radial-gradient(circle, rgba(164,19,60,.14) 0%, rgba(164,19,60,0) 68%);
+}
+.page-partnerships .pricing-showcase::after{
+  width:300px;
+  height:300px;
+  right:-80px;
+  bottom:-26px;
+  background:radial-gradient(circle, rgba(209,73,110,.16) 0%, rgba(209,73,110,0) 70%);
+}
+.page-partnerships .pricing-showcase .card-grid{
+  position:relative;
+  z-index:2;
+  align-items:stretch;
+  gap:1.35rem;
+}
+.page-partnerships .pricing-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.page-partnerships .pricing-showcase .pricing-card{
+  position:relative;
+  padding:1.8rem 1.65rem 1.5rem;
+  border-radius:28px;
+  border:1px solid rgba(238,215,223,.58);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,245,248,.96) 100%);
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  box-shadow:0 24px 52px rgba(96,25,44,.12);
+  overflow:hidden;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.page-partnerships .pricing-showcase .pricing-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(150deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 50%);
+  pointer-events:none;
+}
+.page-partnerships .pricing-showcase .pricing-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 58px rgba(96,25,44,.17);
+  border-color:rgba(164,19,60,.34);
+}
+.page-partnerships .pricing-card-head{
+  margin-bottom:.05rem;
+}
+.page-partnerships .pricing-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  width:max-content;
+  margin-bottom:.4rem;
+  padding:.42rem .8rem;
+  border-radius:999px;
+  border:1px solid rgba(164,19,60,.22);
+  background:rgba(255,241,244,.95);
+  color:var(--primary-deep);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.page-partnerships .pricing-chip i{
+  font-size:.78rem;
+}
+.page-partnerships .pricing-kicker{
+  margin:.55rem 0 0;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.page-partnerships .pricing-showcase .pricing-card h3{
+  font-size:1.25rem;
+  line-height:1.22;
+  margin-bottom:.1rem;
+}
+.page-partnerships .pricing-showcase .price{
+  display:flex;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:.35rem;
+  margin:.1rem 0 0;
+}
+.page-partnerships .price-unit{
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--muted);
+  padding-bottom:.34rem;
+}
+.page-partnerships .pricing-showcase .price-note{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  margin-bottom:.78rem;
+}
+.page-partnerships .pricing-showcase .price-note i{
+  color:var(--primary);
+  opacity:.95;
+}
+.page-partnerships .pricing-points{
+  list-style:none;
+  display:grid;
+  gap:.3rem;
+  margin:0;
+  padding:0;
+}
+.page-partnerships .pricing-points li{
+  display:flex;
+  align-items:flex-start;
+  gap:.65rem;
+  margin:0;
+  padding:.56rem 0;
+  color:var(--muted);
+  line-height:1.5;
+}
+.page-partnerships .pricing-points li i{
+  width:16px;
+  margin-top:.22rem;
+  color:var(--primary);
+  font-size:.84rem;
+  flex:0 0 16px;
+  text-align:center;
+}
+.page-partnerships .pricing-points li span{
+  flex:1;
+}
+.page-partnerships .pricing-points li + li{
+  border-top:1px solid rgba(238,215,223,.5);
+}
+.page-partnerships .pricing-footer{
+  margin-top:auto;
+  padding-top:.9rem;
+  border-top:1px solid rgba(238,215,223,.45);
+  font-size:.92rem;
+  color:var(--primary-deep);
+  font-weight:700;
+}
+.page-partnerships .pricing-actions{
+  padding-top:.95rem;
+}
+.page-partnerships .pricing-actions .btn{
+  width:100%;
+  min-height:46px;
+  border-radius:13px;
+}
+.page-partnerships .pricing-card--featured{
+  transform:translateY(-10px);
+  background:linear-gradient(160deg, rgba(164,19,60,.10) 0%, rgba(255,248,250,.98) 45%, rgba(255,238,244,.98) 100%);
+  border-color:rgba(164,19,60,.33);
+  box-shadow:0 34px 64px rgba(128,15,47,.2);
+}
+.page-partnerships .pricing-card--featured .pricing-chip{
+  background:linear-gradient(135deg, var(--secondary-2), var(--primary));
+  border-color:transparent;
+  color:#fff9fb;
+}
+.page-partnerships .pricing-card--featured .pricing-kicker{
+  color:var(--primary-deep);
+}
 .table-card table{width:100%;border-collapse:collapse}
 .table-card th,.table-card td{
   text-align:left;padding:.95rem .7rem;border-bottom:1px solid var(--line);vertical-align:top
@@ -716,12 +901,45 @@ p.eyebrow::before,
     font-size:1.05rem;
     margin-bottom:.55rem;
   }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:1.35rem 1.15rem 1.2rem;
+    gap:.45rem;
+  }
+  .page-partnerships .pricing-card--featured{
+    transform:translateY(-6px);
+  }
+  .page-partnerships .pricing-showcase .pricing-card h3{
+    font-size:1.08rem;
+    margin-bottom:.15rem;
+  }
+  .page-partnerships .pricing-kicker{
+    font-size:.8rem;
+    margin-top:.45rem;
+  }
   .page-partnerships .price{
     font-size:1.6rem;
     margin:.1rem 0 .3rem;
   }
+  .page-partnerships .price-unit{
+    font-size:.82rem;
+    padding-bottom:.27rem;
+  }
   .page-partnerships .price-note{
     margin-bottom:.55rem;
+  }
+  .page-partnerships .pricing-points{
+    gap:.24rem;
+  }
+  .page-partnerships .pricing-points li{
+    padding:.5rem 0;
+    font-size:.9rem;
+  }
+  .page-partnerships .pricing-footer{
+    font-size:.86rem;
+    padding-top:.72rem;
+  }
+  .page-partnerships .pricing-actions{
+    padding-top:.75rem;
   }
   .page-partnerships .section p,
   .page-partnerships .list li,
@@ -885,6 +1103,50 @@ p.eyebrow::before,
   .feature-card h3,.audience-card h3,.content-card h3,.quote-card h3,.pricing-card h3,.timeline-card h3,.table-card h3{
     font-size:.94rem;
   }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:1.15rem;
+    gap:.4rem;
+  }
+  .page-partnerships .pricing-showcase .pricing-card:hover{
+    transform:none;
+  }
+  .page-partnerships .pricing-card--featured{
+    transform:none;
+  }
+  .page-partnerships .pricing-showcase .pricing-card h3{
+    font-size:1rem;
+  }
+  .page-partnerships .pricing-chip{
+    font-size:.7rem;
+    letter-spacing:.06em;
+    padding:.38rem .66rem;
+  }
+  .page-partnerships .pricing-chip i{
+    font-size:.72rem;
+  }
+  .page-partnerships .price-unit{
+    font-size:.8rem;
+  }
+  .page-partnerships .pricing-points li{
+    gap:.55rem;
+    padding:.5rem 0;
+    font-size:.9rem;
+  }
+  .page-partnerships .pricing-points li i{
+    width:14px;
+    font-size:.78rem;
+    flex-basis:14px;
+  }
+  .page-partnerships .pricing-footer{
+    font-size:.84rem;
+    padding-top:.7rem;
+  }
+  .page-partnerships .pricing-actions{
+    padding-top:.65rem;
+  }
+  .page-partnerships .pricing-actions .btn{
+    min-height:44px;
+  }
   .hero-copy,.section-heading{padding-inline:.15rem}
   .home-page .hero-copy{
     padding:1.25rem;
@@ -996,6 +1258,43 @@ p.eyebrow::before,
   .section h2{font-size:clamp(1.16rem,5.6vw,1.42rem)}
   .feature-card h3,.audience-card h3,.content-card h3,.quote-card h3,.pricing-card h3,.timeline-card h3,.table-card h3{
     font-size:.84rem;
+  }
+  .page-partnerships .pricing-showcase .section-heading{
+    margin-bottom:1.2rem;
+  }
+  .page-partnerships .pricing-showcase::before,
+  .page-partnerships .pricing-showcase::after{
+    display:none;
+  }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:1rem;
+  }
+  .page-partnerships .pricing-showcase .pricing-card h3{
+    font-size:.95rem;
+  }
+  .page-partnerships .pricing-kicker{
+    font-size:.76rem;
+  }
+  .page-partnerships .pricing-points{
+    gap:.2rem;
+  }
+  .page-partnerships .pricing-points li{
+    gap:.5rem;
+    padding:.46rem 0;
+    font-size:.86rem;
+  }
+  .page-partnerships .pricing-points li i{
+    width:13px;
+    font-size:.74rem;
+    flex-basis:13px;
+    margin-top:.2rem;
+  }
+  .page-partnerships .pricing-footer{
+    font-size:.8rem;
+  }
+  .page-partnerships .pricing-actions .btn{
+    min-height:42px;
+    font-size:.86rem;
   }
   .hero-copy,.section-heading{padding-inline:.1rem}
   .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card{padding:1.1rem}
