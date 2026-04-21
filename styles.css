@@ -23,6 +23,8 @@
   --radius:22px;
   --container:1180px;
 }
+
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto}
 body{
@@ -1333,6 +1335,53 @@ p.eyebrow::before,
   }
   .page-partnerships .page-hero{padding:2.2rem 0 1.1rem}
   .page-partnerships .section{padding:2.85rem 0}
+  .page-partnerships .two-column,
+  .page-partnerships .card-grid.three,
+  .page-partnerships .card-grid.four{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .page-partnerships .partnership-intro .two-column.balanced-columns{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .page-partnerships .partnership-intro .split-card{
+    padding:1.1rem;
+  }
+  .page-partnerships .partnership-intro .split-card--media{
+    gap:.8rem;
+  }
+  .page-partnerships .partnership-intro .split-visual,
+  .page-partnerships .partnership-intro .media-frame{
+    border-radius:16px;
+  }
+  .page-partnerships .partnership-intro .media-frame img{
+    width:100%;
+    aspect-ratio:16 / 10;
+    max-height:260px;
+    object-fit:cover;
+  }
+  .page-partnerships .pricing-showcase{
+    isolation:auto;
+  }
+  .page-partnerships .pricing-showcase::before,
+  .page-partnerships .pricing-showcase::after{
+    display:none;
+  }
+  .page-partnerships .pricing-showcase .card-grid{
+    gap:.95rem;
+  }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:1rem;
+    border-radius:18px;
+  }
+  .page-partnerships .pricing-card--featured{
+    transform:none;
+    box-shadow:var(--shadow-soft);
+  }
+  .page-partnerships .pricing-actions .btn{
+    width:100%;
+  }
   .hero h1,.page-hero h1{
     font-size:clamp(1.42rem,5.4vw,1.9rem);
     line-height:1.08;
@@ -1557,6 +1606,24 @@ p.eyebrow::before,
   }
   .page-partnerships .page-hero{padding:1.85rem 0 .9rem}
   .page-partnerships .section{padding:2.2rem 0}
+  .page-partnerships .container,
+  .page-partnerships .nav-container{
+    width:min(var(--container),calc(100% - 1rem));
+  }
+  .page-partnerships .partnership-intro .split-card{
+    padding:.95rem;
+  }
+  .page-partnerships .partnership-intro .split-visual,
+  .page-partnerships .partnership-intro .media-frame{
+    border-radius:14px;
+  }
+  .page-partnerships .partnership-intro .media-frame img{
+    max-height:210px;
+  }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:.92rem;
+    border-radius:16px;
+  }
   .hero-visual{min-height:240px}
   .hero-card.main{border-radius:18px}
   .section{padding:2.35rem 0}
@@ -1706,5 +1773,99 @@ p.eyebrow::before,
   }
   .page-contact .contact-cta p{
     font-size:.88rem;
+  }
+}
+
+/* Final mobile-first guardrails for Partnerships small phones */
+@media (max-width:560px){
+  .page-partnerships .container,
+  .page-partnerships .nav-container{
+    width:min(var(--container),calc(100% - 1.25rem));
+  }
+  .page-partnerships .page-hero{
+    padding:1.65rem 0 .75rem;
+  }
+  .page-partnerships .section{
+    padding:1.9rem 0;
+  }
+  .page-partnerships .section-heading{
+    margin-bottom:1rem;
+  }
+  .page-partnerships .section-heading p{
+    margin-bottom:.6rem;
+  }
+  .page-partnerships .two-column,
+  .page-partnerships .card-grid.three,
+  .page-partnerships .card-grid.four{
+    gap:.8rem;
+  }
+  .page-partnerships .split-card,
+  .page-partnerships .content-card,
+  .page-partnerships .panel-card,
+  .page-partnerships .quote-card,
+  .page-partnerships .pricing-card{
+    padding:.9rem;
+    border-radius:16px;
+  }
+  .page-partnerships .split-card--media{
+    padding:0;
+    gap:.65rem;
+  }
+  .page-partnerships .partnership-intro .split-visual,
+  .page-partnerships .partnership-intro .media-frame,
+  .page-partnerships .media-frame{
+    border-radius:12px;
+  }
+  .page-partnerships .partnership-intro .media-frame img,
+  .page-partnerships .media-frame img{
+    max-height:190px;
+    border-radius:12px;
+  }
+  .page-partnerships .partnership-intro .media-note h3{
+    font-size:.95rem;
+    line-height:1.25;
+  }
+  .page-partnerships .pricing-showcase .card-grid{
+    gap:.8rem;
+  }
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding:.85rem;
+    border-radius:14px;
+  }
+  .page-partnerships .pricing-kicker{
+    margin-top:.35rem;
+    font-size:.72rem;
+  }
+  .page-partnerships .pricing-points li{
+    font-size:.82rem;
+    padding:.4rem 0;
+  }
+  .page-partnerships .pricing-actions{
+    padding-top:.5rem;
+  }
+  .page-partnerships .pricing-actions .btn{
+    min-height:40px;
+    font-size:.82rem;
+  }
+  .page-partnerships .section-light .list-modern{
+    padding-left:0;
+  }
+}
+
+@media (max-width:420px){
+  .page-partnerships .container,
+  .page-partnerships .nav-container{
+    width:min(var(--container),calc(100% - 1rem));
+  }
+  .page-partnerships .split-card,
+  .page-partnerships .content-card,
+  .page-partnerships .panel-card,
+  .page-partnerships .quote-card,
+  .page-partnerships .pricing-card{
+    padding:.8rem;
+  }
+  .page-partnerships .partnership-intro .media-frame img,
+  .page-partnerships .media-frame img{
+    max-height:170px;
   }
 }
