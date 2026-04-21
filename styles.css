@@ -413,6 +413,9 @@ p.eyebrow::before,
   max-width:100%;
   display:block;
 }
+.panel-card audio{
+  margin-top:1rem;
+}
 .media-caption{
   margin:.75rem 0 0;
   font-size:.9rem;
