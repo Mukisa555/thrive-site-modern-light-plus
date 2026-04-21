@@ -1238,32 +1238,62 @@ p.eyebrow::before,
     font-size:.56rem;
     letter-spacing:.05em;
   }
-  .nav-toggle{display:inline-flex;flex-shrink:0}
+  .nav-toggle{
+    display:inline-flex;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(164,19,60,.16);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,244,248,.92) 100%);
+    color:var(--primary);
+    box-shadow:0 8px 20px rgba(96,25,44,.12);
+    transition:transform .16s ease, box-shadow .16s ease, background-color .16s ease;
+  }
+  .nav-toggle:hover{
+    transform:translateY(-1px);
+    box-shadow:0 12px 26px rgba(96,25,44,.16);
+  }
+  .nav-toggle:active{
+    transform:translateY(0);
+  }
+  .nav-toggle[aria-expanded="true"]{
+    background:linear-gradient(180deg, rgba(164,19,60,.14) 0%, rgba(201,24,74,.14) 100%);
+    box-shadow:0 10px 24px rgba(96,25,44,.18);
+  }
   .home-page .nav-toggle{
     color:#f6ede4;
+    border-color:rgba(255,255,255,.18);
+    background:linear-gradient(180deg, rgba(255,255,255,.15) 0%, rgba(255,255,255,.07) 100%);
+    box-shadow:0 10px 24px rgba(0,0,0,.22);
+  }
+  .home-page .nav-toggle[aria-expanded="true"]{
+    background:linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.1) 100%);
   }
   .nav-panel{
     display:none;
     width:100%;
     order:3;
-    padding:.95rem .15rem 0;
-    border:none;
-    border-radius:0;
+    padding:.75rem;
+    border:1px solid rgba(238,215,223,.78);
+    border-radius:18px;
     flex-direction:column;
     align-items:stretch;
-    margin:0;
-    background:#fff;
-    box-shadow:none;
+    margin:.15rem 0 0;
+    background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,249,251,.96) 100%);
+    box-shadow:0 20px 34px rgba(96,25,44,.14);
   }
   .home-page .nav-panel{
-    background:rgba(28,18,13,.9);
+    border-color:rgba(255,255,255,.16);
+    background:linear-gradient(180deg, rgba(29,19,14,.96) 0%, rgba(24,15,11,.94) 100%);
+    box-shadow:0 20px 34px rgba(0,0,0,.34);
   }
   .nav-panel.is-open{display:flex}
   .nav-links{
     width:100%;
     display:grid;
     grid-template-columns:1fr;
-    gap:0;
+    gap:.25rem;
     overflow:visible;
     padding:0;
   }
@@ -1276,37 +1306,49 @@ p.eyebrow::before,
     justify-content:flex-start;
     text-align:left;
     white-space:normal;
-    padding:.8rem .08rem;
+    padding:.78rem .86rem;
     line-height:1.1;
     border:none;
-    border-bottom:1px solid rgba(238,215,223,.75);
-    border-radius:0;
+    border-radius:12px;
     background:transparent;
-    font-size:.9rem;
+    font-size:.91rem;
     font-weight:700;
+    transition:background-color .16s ease, color .16s ease, transform .16s ease;
+  }
+  .nav-links li:not(:last-child) a{
+    border-bottom:1px solid rgba(238,215,223,.62);
   }
   .nav-links a:hover,
   .nav-links a.active{
     color:var(--primary);
+    background:linear-gradient(90deg, rgba(164,19,60,.08) 0%, rgba(201,24,74,.08) 100%);
+    transform:translateX(2px);
   }
   .home-page .nav-links a,
   .home-page .nav-links a:hover,
   .home-page .nav-links a.active{
     color:#fff7ef;
   }
+  .home-page .nav-links li:not(:last-child) a{
+    border-bottom-color:rgba(255,255,255,.14);
+  }
+  .home-page .nav-links a:hover,
+  .home-page .nav-links a.active{
+    background:linear-gradient(90deg, rgba(255,255,255,.15) 0%, rgba(255,255,255,.08) 100%);
+  }
   .nav-links a.active::after{
-    left:0;
+    left:.86rem;
     right:auto;
-    bottom:.2rem;
-    width:100%;
+    bottom:.42rem;
+    width:28px;
     height:2px;
   }
   .nav-cta{width:100%}
   .nav-cta .btn-primary{
     width:100%;
-    margin-top:.95rem;
+    margin-top:.78rem;
     min-height:48px;
-    border-radius:14px;
+    border-radius:12px;
   }
   .card-grid.two{grid-template-columns:1fr}
   .hero{padding:3.5rem 0 2.8rem}
@@ -1590,8 +1632,19 @@ p.eyebrow::before,
   .logo-lockup{max-width:calc(100% - 54px)}
   .logo-text{font-size:.84rem}
   .logo-tag{font-size:.52rem;letter-spacing:.04em}
-  .nav-panel{padding:.85rem .08rem 0}
-  .nav-links a{font-size:.84rem;padding:.72rem .04rem}
+  .nav-toggle{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+  }
+  .nav-panel{
+    padding:.66rem;
+    border-radius:16px;
+  }
+  .nav-links a{
+    font-size:.84rem;
+    padding:.72rem .72rem;
+  }
   .container,.nav-container{width:min(var(--container),calc(100% - 1.5rem))}
   .hero{padding:2.8rem 0 2.1rem}
   .page-hero{padding:2rem 0 1rem}
