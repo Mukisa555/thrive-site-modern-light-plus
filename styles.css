@@ -1342,8 +1342,11 @@ p.eyebrow::before,
     gap:1rem;
   }
   .page-partnerships .partnership-intro .two-column.balanced-columns{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr !important;
     gap:1rem;
+  }
+  .page-partnerships .partnership-intro .two-column.balanced-columns > *{
+    grid-column:1 / -1;
   }
   .page-partnerships .partnership-intro .split-card{
     padding:1.1rem;
@@ -1798,6 +1801,9 @@ p.eyebrow::before,
   .page-partnerships .card-grid.three,
   .page-partnerships .card-grid.four{
     gap:.8rem;
+  }
+  .page-partnerships .partnership-intro .two-column.balanced-columns{
+    grid-template-columns:1fr !important;
   }
   .page-partnerships .split-card,
   .page-partnerships .content-card,
