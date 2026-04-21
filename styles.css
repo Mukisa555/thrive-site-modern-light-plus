@@ -393,6 +393,21 @@ p.eyebrow::before,
   object-position:center;
   background:#fff;
 }
+.media-frame video{
+  width:100%;
+  display:block;
+  border-radius:20px;
+  background:#12080d;
+}
+.media-frame audio{
+  width:100%;
+  display:block;
+}
+.media-caption{
+  margin:.75rem 0 0;
+  font-size:.9rem;
+  color:var(--muted);
+}
 .media-frame.portrait img{aspect-ratio:4 / 3}
 .media-frame.square img{aspect-ratio:6 / 5}
 .media-note{
