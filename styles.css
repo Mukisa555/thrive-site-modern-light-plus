@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root{
   --primary:#A4133C;
   --primary-2:#C72C5A;
@@ -24,7 +26,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto}
 body{
-  font-family:Inter,Arial,sans-serif;
+  font-family:Manrope,Arial,sans-serif;
   background:
     radial-gradient(circle at top left, rgba(201,24,74,.12), transparent 28%),
     radial-gradient(circle at top right, rgba(255,117,143,.12), transparent 24%),
@@ -609,6 +611,100 @@ p.eyebrow::before,
   margin-top:.35rem;
   padding-top:0;
 }
+.page-impact .page-hero{
+  padding:3rem 0 1.6rem;
+}
+.page-impact .section{
+  padding:3.25rem 0;
+}
+.page-impact .section-heading{
+  margin-bottom:1.55rem;
+}
+.page-impact .impact-intro .two-column.balanced-columns{
+  grid-template-columns:1.04fr .96fr;
+  gap:1.2rem;
+}
+.page-impact .impact-intro .split-card{
+  padding:1.45rem;
+}
+.page-impact .impact-intro .split-card--media{
+  gap:.9rem;
+}
+.page-impact .impact-intro .media-frame{
+  padding:.55rem;
+}
+.page-impact .impact-intro .media-frame.square img{
+  aspect-ratio:5 / 4;
+  max-height:320px;
+}
+.page-impact .impact-list{
+  list-style:none;
+  display:grid;
+  gap:.28rem;
+  margin:0;
+  padding:0;
+}
+.page-impact .impact-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:.64rem;
+  margin:0;
+  padding:.58rem 0;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+}
+.page-impact .impact-list li + li{
+  border-top:1px solid rgba(238,215,223,.52);
+}
+.page-impact .impact-list li i{
+  width:16px;
+  margin-top:.2rem;
+  color:var(--primary);
+  font-size:.85rem;
+  flex:0 0 16px;
+  text-align:center;
+}
+.page-impact .impact-list li span{
+  flex:1;
+}
+.page-impact .impact-list-compact li{
+  padding:.46rem 0;
+}
+.page-impact .impact-metrics .metric-card{
+  padding:1.35rem;
+}
+.page-impact .impact-metrics .metric-card strong{
+  font-size:1.38rem;
+  margin-bottom:.55rem;
+}
+.page-about .list-modern-about{
+  gap:.25rem;
+  margin-top:.3rem;
+}
+.page-about .list-modern-about li{
+  display:flex;
+  align-items:flex-start;
+  gap:.7rem;
+  padding:.62rem 0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+}
+.page-about .list-modern-about li + li{
+  border-top:1px solid rgba(238,215,223,.52);
+}
+.page-about .list-modern-about li i{
+  width:17px;
+  margin-top:.2rem;
+  color:var(--primary);
+  font-size:.88rem;
+  flex:0 0 17px;
+  text-align:center;
+}
+.page-about .list-modern-about li span{
+  flex:1;
+}
 .page-partnerships .split-card--copy{
   justify-content:flex-start;
   gap:1rem;
@@ -616,6 +712,58 @@ p.eyebrow::before,
 .page-partnerships .split-card--copy .card-actions{
   margin-top:.35rem;
   padding-top:0;
+}
+.page-partnerships .page-hero{
+  padding:3.2rem 0 1.7rem;
+}
+.page-partnerships .section{
+  padding:3.5rem 0;
+}
+.page-partnerships .section-heading{
+  margin-bottom:1.65rem;
+}
+.page-partnerships .partnership-intro .two-column.balanced-columns{
+  grid-template-columns:1.06fr .94fr;
+  gap:1.35rem;
+  align-items:stretch;
+}
+.page-partnerships .partnership-intro .split-card{
+  padding:1.5rem;
+}
+.page-partnerships .partnership-intro .split-card--copy{
+  justify-content:space-between;
+}
+.page-partnerships .partnership-intro .split-card--copy h2{
+  max-width:22ch;
+}
+.page-partnerships .partnership-intro .split-card--copy p{
+  max-width:62ch;
+}
+.page-partnerships .partnership-intro .split-card--media{
+  gap:1rem;
+  background:linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,244,247,.92) 100%);
+}
+.page-partnerships .partnership-intro .split-visual{
+  padding:.55rem;
+  border:1px solid rgba(238,215,223,.82);
+  border-radius:24px;
+  background:rgba(255,255,255,.9);
+}
+.page-partnerships .partnership-intro .media-frame{
+  padding:.45rem;
+  border-radius:20px;
+}
+.page-partnerships .partnership-intro .media-frame.portrait img{
+  width:100%;
+  max-height:360px;
+  aspect-ratio:5 / 4;
+}
+.page-partnerships .partnership-intro .media-note{
+  gap:.75rem;
+}
+.page-partnerships .partnership-intro .media-note h3{
+  font-size:1.18rem;
+  line-height:1.26;
 }
 .price{font-size:2rem;font-weight:800;color:var(--primary);margin:.2rem 0 .5rem}
 .price-note{font-size:.92rem;color:var(--muted);margin-bottom:.85rem}
@@ -804,6 +952,34 @@ p.eyebrow::before,
 .page-partnerships .pricing-card--featured .pricing-kicker{
   color:var(--primary-deep);
 }
+.page-partnerships .section-light .list-modern{
+  gap:.25rem;
+  margin-top:.25rem;
+  padding-left:.35rem;
+}
+.page-partnerships .section-light .list-modern li{
+  display:flex;
+  align-items:flex-start;
+  gap:.72rem;
+  padding:.72rem 0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+}
+.page-partnerships .section-light .list-modern li + li{
+  border-top:1px solid rgba(238,215,223,.5);
+}
+.page-partnerships .section-light .list-modern li i{
+  width:18px;
+  margin-top:.18rem;
+  color:var(--primary);
+  font-size:.9rem;
+  flex:0 0 18px;
+  text-align:center;
+}
+.page-partnerships .section-light .list-modern li span{
+  flex:1;
+}
 .table-card table{width:100%;border-collapse:collapse}
 .table-card th,.table-card td{
   text-align:left;padding:.95rem .7rem;border-bottom:1px solid var(--line);vertical-align:top
@@ -842,12 +1018,27 @@ p.eyebrow::before,
   font-size:.95rem;
 }
 @media (min-width:1280px){
+  .page-impact .page-hero{
+    padding:3.2rem 0 1.8rem;
+  }
+  .page-impact .section{
+    padding:3.55rem 0;
+  }
+  .page-impact .section-heading{
+    margin-bottom:1.8rem;
+  }
+  .page-impact .impact-intro .split-card{
+    padding:1.5rem;
+  }
+  .page-impact .impact-intro .media-frame.square img{
+    max-height:340px;
+  }
   .page-partnerships .container,
   .page-partnerships .nav-container{
     width:min(1320px,calc(100% - 2rem));
   }
   .page-partnerships .page-hero{
-    padding:2.2rem 0 1rem;
+    padding:3.4rem 0 1.9rem;
   }
   .page-partnerships .page-hero h1{
     font-size:clamp(2.2rem,3.5vw,3.4rem);
@@ -859,7 +1050,7 @@ p.eyebrow::before,
     margin-bottom:0;
   }
   .page-partnerships .section{
-    padding:2.5rem 0;
+    padding:3.75rem 0;
   }
   .page-partnerships .two-column.balanced-columns{
     grid-template-columns:.96fr 1.04fr;
@@ -867,6 +1058,15 @@ p.eyebrow::before,
   }
   .page-partnerships .split-card{
     padding:1.2rem;
+  }
+  .page-partnerships .partnership-intro .two-column.balanced-columns{
+    gap:1rem;
+  }
+  .page-partnerships .partnership-intro .split-card{
+    padding:1.2rem;
+  }
+  .page-partnerships .partnership-intro .media-frame.portrait img{
+    max-height:300px;
   }
   .page-partnerships .split-card--media{
     gap:.7rem;
@@ -887,7 +1087,7 @@ p.eyebrow::before,
     margin-bottom:.75rem;
   }
   .page-partnerships .section-heading{
-    margin-bottom:1.25rem;
+    margin-bottom:1.8rem;
   }
   .page-partnerships .content-card,
   .page-partnerships .panel-card,
@@ -940,6 +1140,15 @@ p.eyebrow::before,
   }
   .page-partnerships .pricing-actions{
     padding-top:.75rem;
+  }
+  .page-partnerships .section-light .list-modern li{
+    gap:.62rem;
+    padding:.62rem 0;
+  }
+  .page-partnerships .section-light .list-modern li i{
+    width:16px;
+    font-size:.82rem;
+    flex-basis:16px;
   }
   .page-partnerships .section p,
   .page-partnerships .list li,
@@ -1088,6 +1297,41 @@ p.eyebrow::before,
     padding:6.6rem 0 3.5rem;
   }
   .page-hero{padding:2.4rem 0 1.2rem}
+  .page-impact .page-hero{padding:2.2rem 0 1.1rem}
+  .page-impact .section{padding:2.85rem 0}
+  .page-impact .impact-intro .split-card{
+    padding:1.15rem;
+  }
+  .page-impact .impact-intro .media-frame.square img{
+    aspect-ratio:16 / 10;
+    max-height:240px;
+  }
+  .page-impact .impact-list li{
+    padding:.5rem 0;
+    gap:.56rem;
+  }
+  .page-impact .impact-list li i{
+    width:14px;
+    font-size:.78rem;
+    flex-basis:14px;
+  }
+  .page-impact .impact-metrics .metric-card{
+    padding:1.15rem;
+  }
+  .page-impact .impact-metrics .metric-card strong{
+    font-size:1.18rem;
+  }
+  .page-about .list-modern-about li{
+    gap:.58rem;
+    padding:.52rem 0;
+  }
+  .page-about .list-modern-about li i{
+    width:14px;
+    font-size:.78rem;
+    flex-basis:14px;
+  }
+  .page-partnerships .page-hero{padding:2.2rem 0 1.1rem}
+  .page-partnerships .section{padding:2.85rem 0}
   .hero h1,.page-hero h1{
     font-size:clamp(1.42rem,5.4vw,1.9rem);
     line-height:1.08;
@@ -1106,6 +1350,27 @@ p.eyebrow::before,
   .page-partnerships .pricing-showcase .pricing-card{
     padding:1.15rem;
     gap:.4rem;
+  }
+  .page-partnerships .partnership-intro .split-card{
+    padding:1.1rem;
+  }
+  .page-partnerships .partnership-intro .split-card--copy p{
+    max-width:none;
+  }
+  .page-partnerships .partnership-intro .split-visual{
+    padding:.4rem;
+    border-radius:18px;
+  }
+  .page-partnerships .partnership-intro .media-frame{
+    padding:.25rem;
+    border-radius:16px;
+  }
+  .page-partnerships .partnership-intro .media-frame.portrait img{
+    aspect-ratio:16 / 10;
+    max-height:240px;
+  }
+  .page-partnerships .partnership-intro .media-note h3{
+    font-size:1.02rem;
   }
   .page-partnerships .pricing-showcase .pricing-card:hover{
     transform:none;
@@ -1146,6 +1411,19 @@ p.eyebrow::before,
   }
   .page-partnerships .pricing-actions .btn{
     min-height:44px;
+  }
+  .page-partnerships .section-light .list-modern{
+    gap:.2rem;
+    padding-left:.2rem;
+  }
+  .page-partnerships .section-light .list-modern li{
+    gap:.55rem;
+    padding:.55rem 0;
+  }
+  .page-partnerships .section-light .list-modern li i{
+    width:14px;
+    font-size:.78rem;
+    flex-basis:14px;
   }
   .hero-copy,.section-heading{padding-inline:.15rem}
   .home-page .hero-copy{
@@ -1243,6 +1521,34 @@ p.eyebrow::before,
   .container,.nav-container{width:min(var(--container),calc(100% - 1.5rem))}
   .hero{padding:2.8rem 0 2.1rem}
   .page-hero{padding:2rem 0 1rem}
+  .page-impact .page-hero{padding:1.85rem 0 .9rem}
+  .page-impact .section{padding:2.2rem 0}
+  .page-impact .impact-intro .split-card{
+    padding:1rem;
+  }
+  .page-impact .impact-intro .media-frame.square img{
+    max-height:200px;
+  }
+  .page-impact .impact-list li{
+    padding:.46rem 0;
+    gap:.5rem;
+  }
+  .page-impact .impact-list li i{
+    width:13px;
+    font-size:.74rem;
+    flex-basis:13px;
+  }
+  .page-about .list-modern-about li{
+    gap:.5rem;
+    padding:.46rem 0;
+  }
+  .page-about .list-modern-about li i{
+    width:13px;
+    font-size:.74rem;
+    flex-basis:13px;
+  }
+  .page-partnerships .page-hero{padding:1.85rem 0 .9rem}
+  .page-partnerships .section{padding:2.2rem 0}
   .hero-visual{min-height:240px}
   .hero-card.main{border-radius:18px}
   .section{padding:2.35rem 0}
@@ -1268,6 +1574,12 @@ p.eyebrow::before,
   }
   .page-partnerships .pricing-showcase .pricing-card{
     padding:1rem;
+  }
+  .page-partnerships .partnership-intro .split-card{
+    padding:1rem;
+  }
+  .page-partnerships .partnership-intro .media-frame.portrait img{
+    max-height:200px;
   }
   .page-partnerships .pricing-showcase .pricing-card h3{
     font-size:.95rem;
@@ -1295,6 +1607,15 @@ p.eyebrow::before,
   .page-partnerships .pricing-actions .btn{
     min-height:42px;
     font-size:.86rem;
+  }
+  .page-partnerships .section-light .list-modern li{
+    gap:.5rem;
+    padding:.5rem 0;
+  }
+  .page-partnerships .section-light .list-modern li i{
+    width:13px;
+    font-size:.74rem;
+    flex-basis:13px;
   }
   .hero-copy,.section-heading{padding-inline:.1rem}
   .panel-card,.feature-card,.audience-card,.content-card,.quote-card,.pricing-card,.metric-card,.timeline-card,.table-card,.mini-card{padding:1.1rem}
