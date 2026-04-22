@@ -175,13 +175,43 @@
 </section>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="footer-brand"><span class="logo-mark">TP</span><span class="logo-text">Thrive Path</span></div>
-      <p class="footer-text">Future readiness, human first.</p>
+  <div class="footer-wash" aria-hidden="true"></div>
+  <div class="container footer-cta">
+    <div class="footer-cta-copy">
+      <p class="eyebrow eyebrow-light">Stay in the loop</p>
+      <h2>Get occasional updates on the Thrive Path journey.</h2>
+      <p>Program insights, partnership opportunities, and stories from schools. No spam &mdash; just a short note when it matters.</p>
     </div>
-    <div>
-      <h4>Pages</h4>
+    <form class="footer-subscribe" onsubmit="event.preventDefault(); this.querySelector('.footer-subscribe-msg').hidden=false; this.reset();">
+      <label class="sr-only" for="footer-email">Email address</label>
+      <div class="footer-subscribe-row">
+        <input id="footer-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        <button type="submit" class="btn btn-solid">Subscribe</button>
+      </div>
+      <p class="footer-subscribe-msg" hidden>Thanks &mdash; we&rsquo;ll be in touch.</p>
+    </form>
+  </div>
+
+  <div class="container footer-grid">
+    <div class="footer-brand-col">
+      <div class="footer-brand">
+        <span class="logo-mark">TP</span>
+        <span class="footer-brand-text">
+          <span class="logo-text">Thrive Path</span>
+          <span class="logo-tag">Future-readiness for learners</span>
+        </span>
+      </div>
+      <p class="footer-text">A school-integrated future-readiness program equipping young people with self-awareness, real-world understanding, and adaptive skills.</p>
+      <ul class="footer-social" aria-label="Social links">
+        <li><a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM10 9.75h3.8v1.55h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21H18.6v-4.9c0-1.17-.02-2.68-1.67-2.68-1.67 0-1.93 1.27-1.93 2.59V21H10z"/></svg></a></li>
+        <li><a href="#" aria-label="X" title="X"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22.5 22h-6.77l-4.79-6.24L5.3 22H2.54l6.99-7.98L1.9 2h6.91l4.33 5.73L18.244 2zm-2.37 18h1.86L7.24 4H5.28l10.595 16z"/></svg></a></li>
+        <li><a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+        <li><a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-8.9.5A3 3 0 0 0 1 7.2C.5 9 .5 12 .5 12s0 3 .5 4.8a3 3 0 0 0 2.1 2.1c1.8.5 8.9.5 8.9.5s7.1 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8zM9.75 15.5v-7L15.5 12z"/></svg></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>
         <li><a href="problem.html">The Problem</a></li>
@@ -189,16 +219,42 @@
         <li><a href="impact.html">Impact</a></li>
       </ul>
     </div>
-    <div>
+
+    <div class="footer-col">
       <h4>Engage</h4>
       <ul class="footer-links">
         <li><a href="partnerships.html">Partnerships</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="partnerships.html#pricing">Program Tiers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>Get in touch</h4>
+      <ul class="footer-contact-list">
+        <li>
+          <span class="footer-contact-label">Email</span>
+          <a href="mailto:hello@thrivepath.org">hello@thrivepath.org</a>
+        </li>
+        <li>
+          <span class="footer-contact-label">Based in</span>
+          <span>Kampala, Uganda</span>
+        </li>
+        <li>
+          <span class="footer-contact-label">Partnerships</span>
+          <a href="contact.html">Start a conversation &rarr;</a>
+        </li>
       </ul>
     </div>
   </div>
+
   <div class="container footer-bottom">
-    <p>© 2026 Thrive Path</p>
+    <p>&copy; 2026 Thrive Path. Future readiness, human first.</p>
+    <ul class="footer-meta">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#top" class="footer-top">Back to top <span aria-hidden="true">&uarr;</span></a></li>
+    </ul>
   </div>
 </footer>
 <script src="script.js"></script>
