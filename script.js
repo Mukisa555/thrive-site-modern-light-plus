@@ -442,3 +442,41 @@ createChatbot();
     );
   }
 })();
+
+/* ============================================================
+   Scrollspy for sticky "On this page" anchor nav
+   ============================================================ */
+(function anchorNavScrollspy() {
+  const nav = document.querySelector(".anchor-nav");
+  if (!nav) return;
+
+  const links = Array.from(nav.querySelectorAll("a[href^='#']"));
+  if (!links.length) return;
+
+  const sections = links
+    .map((a) => {
+      const id = a.getAttribute("href").slice(1);
+      const el = id && document.getElementById(id);
+      return el ? { link: a, el } : null;
+    })
+    .filter(Boolean);
+
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+
+  const setActive = (activeEl) => {
+    sections.forEach(({ link, el }) => {
+      link.classList.toggle("is-active", el === activeEl);
+    });
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) setActive(visible[0].target);
+    },
+    { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.6] }
+  );
+  sections.forEach(({ el }) => io.observe(el));
+})();
