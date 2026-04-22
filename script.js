@@ -284,3 +284,161 @@ function createChatbot() {
 }
 
 createChatbot();
+
+/* ============================================================
+   MODERN ENHANCEMENTS — scroll reveal, count-up, smart navbar,
+   scroll progress. Respects prefers-reduced-motion.
+   ============================================================ */
+(function modernEnhancements() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Auto-tag elements for scroll reveal --------------- */
+  const revealSelectors = [
+    ".section-heading",
+    ".section .two-column > *",
+    ".section .highlight-block > *",
+    ".section .callout > *",
+    ".panel-card",
+    ".quote-card",
+    ".table-card",
+    ".timeline-card",
+    ".image-card",
+    ".media-frame",
+    ".hero .hero-visual",
+    ".page-hero .hero-copy > *",
+  ];
+  document.querySelectorAll(revealSelectors.join(",")).forEach((el) => {
+    if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
+  });
+
+  const staggerSelectors = [
+    ".card-grid",
+    ".trust-grid",
+    ".metric-grid",
+    ".timeline-grid",
+    ".logo-cloud",
+    ".highlight-list",
+    ".footer-grid",
+  ];
+  document.querySelectorAll(staggerSelectors.join(",")).forEach((el) => {
+    if (!el.hasAttribute("data-reveal-stagger")) el.setAttribute("data-reveal-stagger", "");
+  });
+
+  /* ---------- IntersectionObserver reveal ----------------------- */
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    document
+      .querySelectorAll("[data-reveal], [data-reveal-stagger]")
+      .forEach((el) => io.observe(el));
+  } else {
+    // Reduced motion / no IO: show everything immediately
+    document
+      .querySelectorAll("[data-reveal], [data-reveal-stagger]")
+      .forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ---------- Smart navbar (scrolled + hide on scroll down) ----- */
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      const y = window.scrollY;
+      navbar.classList.toggle("is-scrolled", y > 12);
+      if (!prefersReducedMotion) {
+        const delta = y - lastY;
+        if (y > 220 && delta > 6) {
+          navbar.classList.add("is-hidden");
+        } else if (delta < -4 || y < 120) {
+          navbar.classList.remove("is-hidden");
+        }
+      }
+      lastY = y;
+      ticking = false;
+    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  /* ---------- Scroll progress bar ------------------------------- */
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  document.body.appendChild(progress);
+  const updateProgress = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progress.style.setProperty("--progress", pct + "%");
+  };
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+
+  /* ---------- Count-up for trust / metric numbers --------------- */
+  const numberEls = document.querySelectorAll(".trust-item h2, .metric-card strong");
+  const animateCount = (el) => {
+    const raw = el.textContent.trim();
+    // Match leading number (supports ranges like 16–30 → animate first)
+    const match = raw.match(/^(\d+)/);
+    if (!match) return;
+    const target = parseInt(match[1], 10);
+    if (!Number.isFinite(target) || target < 1) return;
+    const suffix = raw.slice(match[0].length);
+    const duration = 1400;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = raw;
+    };
+    requestAnimationFrame(tick);
+  };
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    const countIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            countIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    numberEls.forEach((el) => countIO.observe(el));
+  }
+
+  /* ---------- Subtle parallax on hero background (home only) ---- */
+  const hero = document.querySelector(".home-page .hero");
+  if (hero && !prefersReducedMotion) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const y = window.scrollY;
+        if (y < 800) {
+          hero.style.backgroundPosition = `center ${50 + y * 0.04}%`;
+        }
+      },
+      { passive: true }
+    );
+  }
+})();
