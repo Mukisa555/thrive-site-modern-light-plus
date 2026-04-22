@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..800;1,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root{
   --primary:#A4133C;
@@ -28,13 +28,15 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto}
 body{
-  font-family:Manrope,Arial,sans-serif;
+  font-family:'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  font-feature-settings:'ss01','ss02','cv11','liga','kern';
   background:
     radial-gradient(circle at top left, rgba(201,24,74,.12), transparent 28%),
     radial-gradient(circle at top right, rgba(255,117,143,.12), transparent 24%),
     var(--bg);
   color:var(--text);
-  line-height:1.72;
+  line-height:1.65;
+  letter-spacing:-.011em;
 }
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
@@ -1957,7 +1959,7 @@ p.eyebrow::before,
    ========================================================================= */
 
 :root{
-  --display-font: 'Fraunces', 'Manrope', Georgia, serif;
+  --display-font: 'Instrument Serif', 'Fraunces', 'Times New Roman', Georgia, serif;
   --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --ease-out-quint: cubic-bezier(.22,1,.36,1);
   --ease-spring: cubic-bezier(.34,1.56,.64,1);
@@ -1977,7 +1979,7 @@ html{scroll-behavior:smooth}
 }
 
 body{
-  font-feature-settings: "ss01","cv11","liga","kern";
+  font-feature-settings: "ss01","ss02","cv11","liga","kern";
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -1989,28 +1991,38 @@ body{
 .highlight-block h2,
 .callout h2{
   font-family: var(--display-font);
-  font-weight: 600;
+  font-weight: 400;
   font-optical-sizing: auto;
-  letter-spacing:-.035em;
-  font-variation-settings: "SOFT" 30, "WONK" 0, "opsz" 120;
+  letter-spacing:-.025em;
+  line-height:1.04;
 }
 .hero h1,
 .page-hero h1{
-  font-weight: 500;
-  letter-spacing:-.045em;
+  font-weight: 400;
+  letter-spacing:-.03em;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+}
+.section h2{
+  font-size: clamp(2.1rem, 4.2vw, 3.35rem);
 }
 .hero h1 em,
 .page-hero h1 em,
-.section h2 em{
+.section h2 em,
+.highlight-block h2 em,
+.callout h2 em{
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
   color: var(--primary);
   background: linear-gradient(120deg, var(--primary-2) 0%, var(--primary-deep) 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
+  font-weight: 400;
 }
-h3,h4{letter-spacing:-.015em}
+h3,h4{
+  font-family:'Inter Tight','Inter',sans-serif;
+  font-weight:600;
+  letter-spacing:-.018em;
+}
 .eyebrow,
 p.eyebrow{
   font-family: var(--mono-font);
@@ -2591,9 +2603,9 @@ html{ scroll-padding-top: 140px; }
   justify-content: center;
   background: var(--grad-brand);
   color: #fff;
-  font-family: var(--display-font);
+  font-family: var(--mono-font);
   font-weight: 600;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   letter-spacing: -.02em;
   box-shadow: 0 12px 24px rgba(164,19,60,.28);
   border: 4px solid #fff;
@@ -3285,4 +3297,125 @@ html{ scroll-padding-top: 140px; }
 .page-impact #theory .panel-card,
 .page-impact #theory .quote-card{
   padding: 1.75rem;
+}
+
+/* =========================================================================
+   TYPOGRAPHY v2 — Instrument Serif + Inter Tight normalization
+   Instrument Serif ships weight 400 only; everywhere it's used as the
+   display font, force 400 and let large sizes carry the weight.
+   ========================================================================= */
+
+/* Any display-font usage: force 400 (synthetic bold looks ugly) */
+.trust-item h2,
+.metric-card strong,
+.modern-stats .stat-cell h2,
+.cta-ribbon h3,
+.highlight-block.pullquote .quote-mark,
+.footer-cta h2,
+.benefit-card h3{
+  font-weight: 400 !important;
+  letter-spacing: -.02em;
+}
+
+/* Display numbers: looser line, larger for presence */
+.trust-item h2,
+.modern-stats .stat-cell h2{
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: .95;
+}
+.metric-card strong{
+  font-size: clamp(1.7rem, 2.5vw, 2.1rem);
+}
+.cta-ribbon h3{
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.footer-cta h2{
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+/* Pullquote: Instrument Serif italic quote mark reads best at 400 */
+.highlight-block.pullquote .quote-mark{
+  font-size: 8rem;
+  line-height: .5;
+  opacity: .45;
+}
+.highlight-block.pullquote h2{
+  font-style: normal;
+}
+
+/* Benefit card heading back to sans (cleaner) */
+.benefit-card h3{
+  font-family: 'Inter Tight','Inter',sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem;
+}
+
+/* Paragraphs: slightly tighter, more modern rhythm */
+p{ letter-spacing: -.005em; }
+.hero-text,
+.page-hero p,
+.section p{
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+/* Eyebrows: sharpen with the mono font */
+.eyebrow,
+p.eyebrow{
+  font-family: var(--mono-font);
+  font-weight: 500 !important;
+}
+
+/* Navigation & buttons: Inter Tight already via body; ensure weight */
+.nav-links a,
+.btn,
+.nav-cta .btn-primary{
+  font-family: 'Inter Tight','Inter',sans-serif;
+  font-weight: 600;
+  letter-spacing: -.005em;
+}
+
+/* Section heading italic accent: keep italic weight 400 from the font */
+.hero h1 em,
+.page-hero h1 em,
+.section h2 em{
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+/* Tag pills: mono already — tighten */
+.tag-pill{
+  font-weight: 500 !important;
+  letter-spacing: .16em !important;
+}
+
+/* Anchor-nav chips: modern Inter Tight */
+.anchor-nav a{
+  font-family: 'Inter Tight','Inter',sans-serif;
+  font-weight: 600;
+  letter-spacing: -.005em;
+}
+
+/* Footer headings mono already — tighten */
+.site-footer h4{
+  font-weight: 500;
+}
+
+/* Card headings */
+.feature-card h3,
+.audience-card h3,
+.content-card h3,
+.quote-card h3,
+.pricing-card h3,
+.timeline-card h3,
+.table-card h3,
+.panel-card h3,
+.journey-body h3{
+  font-family: 'Inter Tight','Inter',sans-serif;
+  font-weight: 600;
+  letter-spacing: -.015em;
 }
