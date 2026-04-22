@@ -620,39 +620,21 @@ p.eyebrow::before,
   margin-top:.35rem;
   padding-top:0;
 }
-.page-impact .page-hero{
-  padding:3rem 0 1.6rem;
-}
-.page-impact .section{
-  padding:3.25rem 0;
-}
-.page-impact .section-heading{
-  margin-bottom:1.55rem;
-}
-.page-impact .two-column,
-.page-impact .content-grid,
-.page-impact .card-grid.two,
-.page-impact .card-grid.three,
-.page-impact .card-grid.four,
-.page-impact .metric-grid,
-.page-impact .timeline-grid{
-  grid-template-columns:1fr;
-}
 .page-impact .impact-intro .two-column.balanced-columns{
-  gap:1rem;
+  gap:1.5rem;
 }
 .page-impact .impact-intro .split-card{
-  padding:1.45rem;
+  padding:1.75rem;
 }
 .page-impact .impact-intro .split-card--media{
-  gap:.9rem;
+  gap:1rem;
 }
 .page-impact .impact-intro .media-frame{
   padding:0;
 }
 .page-impact .impact-intro .media-frame.square img{
   aspect-ratio:5 / 4;
-  max-height:320px;
+  max-height:360px;
 }
 .page-impact .impact-list{
   list-style:none;
@@ -664,9 +646,9 @@ p.eyebrow::before,
 .page-impact .impact-list li{
   display:flex;
   align-items:flex-start;
-  gap:.64rem;
+  gap:.7rem;
   margin:0;
-  padding:.58rem 0;
+  padding:.65rem 0;
   border:none;
   background:transparent;
   color:var(--muted);
@@ -675,12 +657,19 @@ p.eyebrow::before,
   border-top:1px solid rgba(238,215,223,.52);
 }
 .page-impact .impact-list li i{
-  width:16px;
-  margin-top:.2rem;
-  color:var(--primary);
-  font-size:.85rem;
-  flex:0 0 16px;
-  text-align:center;
+  width:28px;
+  height:28px;
+  margin-top:.1rem;
+  color:var(--primary-deep);
+  font-size:.78rem;
+  flex:0 0 28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:linear-gradient(135deg, var(--primary-wash), #fff);
+  border:1px solid rgba(164,19,60,.18);
+  box-shadow:0 4px 10px rgba(164,19,60,.08);
 }
 .page-impact .impact-list li span{
   flex:1;
@@ -689,10 +678,10 @@ p.eyebrow::before,
   padding:.46rem 0;
 }
 .page-impact .impact-metrics .metric-card{
-  padding:1.35rem;
+  padding:1.5rem;
 }
 .page-impact .impact-metrics .metric-card strong{
-  font-size:1.38rem;
+  font-size:1.5rem;
   margin-bottom:.55rem;
 }
 .page-about .list-modern-about{
@@ -3219,4 +3208,81 @@ html{ scroll-padding-top: 140px; }
   .footer-subscribe-row{ flex-direction: column; padding: .5rem; }
   .footer-subscribe .btn-solid{ width: 100%; }
   .site-footer .footer-bottom{ justify-content: flex-start; }
+}
+
+/* =========================================================================
+   IMPACT PAGE — modernized layout polish
+   ========================================================================= */
+
+/* 4-column journey for scorecard; connector line adjusts */
+.journey-grid.scorecard-grid{
+  grid-template-columns: repeat(4, 1fr);
+}
+.journey-grid.scorecard-grid::before{
+  left: 6%;
+  right: 6%;
+}
+@media (max-width: 1100px){
+  .journey-grid.scorecard-grid{ grid-template-columns: repeat(2, 1fr); }
+  .journey-grid.scorecard-grid::before{ display: none; }
+}
+@media (max-width: 620px){
+  .journey-grid.scorecard-grid{ grid-template-columns: 1fr; }
+}
+
+/* Benefit cards (who benefits) get a tag-pill + icon stacked header */
+.benefit-card{
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card::after{
+  content: "";
+  position: absolute;
+  inset: auto -30% -60% auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(164,19,60,.08), transparent 70%);
+  pointer-events: none;
+  transition: transform .6s var(--ease-out-quint);
+}
+.benefit-card:hover::after{ transform: translate(-18px, -18px); }
+.benefit-card .audience-icon{
+  margin-bottom: .35rem;
+}
+.benefit-card .tag-pill{
+  align-self: flex-start;
+  margin-bottom: .1rem;
+}
+.benefit-card h3{
+  margin: 0;
+  font-family: var(--display-font);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.benefit-card .impact-list{
+  margin-top: .25rem;
+}
+
+/* Make impact-page stats bar inherit the modern styling (already done via
+   .modern-stats). Ensure intro split cards align visually. */
+.page-impact .impact-intro .split-card--media .image-card.framed{
+  padding: 10px;
+}
+.page-impact .impact-intro .image-tag{
+  left: 22px;
+  bottom: 22px;
+}
+
+/* Pull theory-of-change split into better balance */
+.page-impact #theory .two-column{
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.page-impact #theory .panel-card,
+.page-impact #theory .quote-card{
+  padding: 1.75rem;
 }

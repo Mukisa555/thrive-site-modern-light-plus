@@ -43,7 +43,44 @@
   </div>
 </section>
 
-<section class="section impact-intro">
+<nav class="anchor-nav" aria-label="On this page">
+  <div class="container anchor-nav-inner">
+    <span class="anchor-nav-label">On this page</span>
+    <ul>
+      <li><a href="#strategy">Strategy</a></li>
+      <li><a href="#beneficiaries">Who benefits</a></li>
+      <li><a href="#scorecard">Scorecard</a></li>
+      <li><a href="#theory">Theory of change</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="trust-strip modern-stats">
+  <div class="container trust-grid">
+    <div class="trust-item stat-cell">
+      <span class="stat-label">Dimensions</span>
+      <h2>4</h2>
+      <p>Measurement areas: reach, capability, systems, and transitions.</p>
+    </div>
+    <div class="trust-item stat-cell">
+      <span class="stat-label">Cycle</span>
+      <h2>Termly</h2>
+      <p>Feedback and adaptation loop tied to real school calendars.</p>
+    </div>
+    <div class="trust-item stat-cell">
+      <span class="stat-label">Audiences</span>
+      <h2>4 Groups</h2>
+      <p>Learners, schools, families, and wider society each tracked.</p>
+    </div>
+    <div class="trust-item stat-cell">
+      <span class="stat-label">Horizon</span>
+      <h2>Long-term</h2>
+      <p>Short-term wins plus compounding readiness indicators.</p>
+    </div>
+  </div>
+</section>
+
+<section id="strategy" class="section impact-intro">
   <div class="container two-column balanced-columns">
     <div class="panel-card split-card split-card--copy">
       <p class="eyebrow">Impact Strategy</p>
@@ -60,8 +97,9 @@
       </div>
     </div>
     <div class="content-card split-card split-card--media">
-      <div class="image-card media-frame split-visual square">
+      <div class="image-card media-frame split-visual square framed">
         <img src="assets/After%20class.png" alt="Learners collaborating after class">
+        <div class="image-tag"><span class="dot"></span>Evidence in practice</div>
       </div>
       <div class="media-note">
         <p class="eyebrow">Long-term view</p>
@@ -77,15 +115,17 @@
   </div>
 </section>
 
-<section class="section section-soft">
+<section id="beneficiaries" class="section section-soft has-pattern pattern-dots">
   <div class="container">
     <div class="section-heading center">
       <p class="eyebrow">Who Benefits</p>
-      <h2>Value created at learner, school, family, and systems level</h2>
+      <h2>Value created at every <em>level</em> of the learner's world</h2>
       <p>Impact is distributed, not isolated. Thrive Path is designed to create visible gains for students while strengthening the adults and systems around them.</p>
     </div>
-    <div class="card-grid four">
-      <article class="audience-card">
+    <div class="card-grid four benefit-grid">
+      <article class="audience-card benefit-card">
+        <div class="audience-icon" aria-hidden="true">🎓</div>
+        <span class="tag-pill">Learners</span>
         <h3>For learners</h3>
         <ul class="list impact-list">
           <li><i class="fa-solid fa-compass" aria-hidden="true"></i><span>Clearer identity, direction, and next-step planning.</span></li>
@@ -93,7 +133,9 @@
           <li><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Better communication and collaborative confidence.</span></li>
         </ul>
       </article>
-      <article class="audience-card">
+      <article class="audience-card benefit-card">
+        <div class="audience-icon" aria-hidden="true">🏫</div>
+        <span class="tag-pill">Schools</span>
         <h3>For schools</h3>
         <ul class="list impact-list">
           <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Higher learner engagement and attendance quality.</span></li>
@@ -101,7 +143,9 @@
           <li><i class="fa-solid fa-medal" aria-hidden="true"></i><span>Stronger institutional reputation for future-readiness.</span></li>
         </ul>
       </article>
-      <article class="audience-card">
+      <article class="audience-card benefit-card">
+        <div class="audience-icon" aria-hidden="true">👪</div>
+        <span class="tag-pill">Families</span>
         <h3>For families</h3>
         <ul class="list impact-list">
           <li><i class="fa-solid fa-house" aria-hidden="true"></i><span>More meaningful conversations about strengths and goals.</span></li>
@@ -109,7 +153,9 @@
           <li><i class="fa-solid fa-heart" aria-hidden="true"></i><span>Greater confidence in education investment outcomes.</span></li>
         </ul>
       </article>
-      <article class="audience-card">
+      <article class="audience-card benefit-card">
+        <div class="audience-icon" aria-hidden="true">🌍</div>
+        <span class="tag-pill">Society</span>
         <h3>For society</h3>
         <ul class="list impact-list">
           <li><i class="fa-solid fa-city" aria-hidden="true"></i><span>More adaptable young people entering local economies.</span></li>
@@ -121,35 +167,68 @@
   </div>
 </section>
 
-<section class="section impact-metrics">
+<section id="scorecard" class="section impact-metrics">
   <div class="container">
     <div class="section-heading center">
       <p class="eyebrow">Impact Scorecard</p>
-      <h2>Designed for measurable movement, not anecdotal reporting</h2>
+      <h2>Designed for measurable <em>movement</em>, not anecdotal reporting</h2>
       <p>The model tracks outcomes across four dimensions so schools and partners can evaluate both quality of delivery and quality of change.</p>
     </div>
-    <div class="card-grid four">
-      <div class="metric-card">
-        <strong>Reach</strong>
-        <p>Schools onboarded, learners reached, and participation continuity across terms and cohorts.</p>
-      </div>
-      <div class="metric-card">
-        <strong>Capability</strong>
-        <p>Growth in confidence, communication, digital literacy, and practical readiness behaviors.</p>
-      </div>
-      <div class="metric-card">
-        <strong>School Systems</strong>
-        <p>Facilitator readiness, school adoption quality, and visible integration into learner support structures.</p>
-      </div>
-      <div class="metric-card">
-        <strong>Transition Signals</strong>
-        <p>Pathways into work, entrepreneurship, further training, and reduced post-school drift.</p>
-      </div>
+    <ol class="journey-grid scorecard-grid">
+      <li class="journey-card">
+        <div class="journey-step"><span>01</span></div>
+        <div class="journey-body">
+          <span class="tag-pill">Reach</span>
+          <h3>Reach</h3>
+          <p>Schools onboarded, learners reached, and participation continuity across terms and cohorts.</p>
+          <ul class="tag-row"><li>Schools</li><li>Cohorts</li><li>Continuity</li></ul>
+        </div>
+      </li>
+      <li class="journey-card">
+        <div class="journey-step"><span>02</span></div>
+        <div class="journey-body">
+          <span class="tag-pill">Capability</span>
+          <h3>Capability</h3>
+          <p>Growth in confidence, communication, digital literacy, and practical readiness behaviors.</p>
+          <ul class="tag-row"><li>Confidence</li><li>Digital</li><li>Behaviors</li></ul>
+        </div>
+      </li>
+      <li class="journey-card">
+        <div class="journey-step"><span>03</span></div>
+        <div class="journey-body">
+          <span class="tag-pill">Systems</span>
+          <h3>School systems</h3>
+          <p>Facilitator readiness, school adoption quality, and visible integration into learner support structures.</p>
+          <ul class="tag-row"><li>Facilitators</li><li>Adoption</li><li>Support</li></ul>
+        </div>
+      </li>
+      <li class="journey-card">
+        <div class="journey-step"><span>04</span></div>
+        <div class="journey-body">
+          <span class="tag-pill">Transitions</span>
+          <h3>Transition signals</h3>
+          <p>Pathways into work, entrepreneurship, further training, and reduced post-school drift.</p>
+          <ul class="tag-row"><li>Work</li><li>Enterprise</li><li>Learning</li></ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta-ribbon">
+  <div class="container cta-ribbon-inner">
+    <div>
+      <p class="eyebrow eyebrow-light">Impact briefing</p>
+      <h3>See the measurement model in detail.</h3>
+    </div>
+    <div class="cta-ribbon-actions">
+      <a href="contact.html" class="btn btn-solid">Request impact brief</a>
+      <a href="partnerships.html" class="btn btn-ghost-light">Partner with us</a>
     </div>
   </div>
 </section>
 
-<section class="section section-light">
+<section id="theory" class="section section-light">
   <div class="container two-column">
     <div class="panel-card">
       <p class="eyebrow">Theory of Change</p>
