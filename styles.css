@@ -3419,3 +3419,287 @@ p.eyebrow{
   font-weight: 600;
   letter-spacing: -.015em;
 }
+
+/* =========================================================================
+   SUPER POLISH — final layer of premium micro-details
+   - Subtle grain overlay
+   - Cursor-aware card spotlight
+   - Animated gradient on italic accents
+   - Shimmering display numbers on reveal
+   - Marquee ribbon
+   - View transitions across pages
+   ========================================================================= */
+
+/* ---- 1. Subtle grain/noise overlay (adds tactile premium feel) ---------- */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+@media (prefers-reduced-motion: reduce){
+  body::before{ opacity: 0; }
+}
+
+/* ---- 2. Cursor-aware spotlight on cards -------------------------------- */
+.feature-card,
+.audience-card,
+.content-card,
+.trust-item,
+.metric-card,
+.quote-card,
+.timeline-card,
+.panel-card,
+.pricing-card,
+.journey-card,
+.benefit-card{
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+}
+.feature-card::after,
+.audience-card::after,
+.content-card::after,
+.trust-item::after,
+.metric-card::after,
+.quote-card::after,
+.timeline-card::after,
+.panel-card::after,
+.pricing-card::after,
+.journey-card::after,
+.benefit-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    rgba(201, 44, 90, .14),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity .45s var(--ease-out-quint);
+  pointer-events: none;
+  z-index: 0;
+}
+.feature-card:hover::after,
+.audience-card:hover::after,
+.content-card:hover::after,
+.trust-item:hover::after,
+.metric-card:hover::after,
+.quote-card:hover::after,
+.timeline-card:hover::after,
+.panel-card:hover::after,
+.pricing-card:hover::after,
+.journey-card:hover::after,
+.benefit-card:hover::after{
+  opacity: 1;
+}
+/* Keep existing children above the spotlight */
+.feature-card > *,
+.audience-card > *,
+.content-card > *,
+.trust-item > *,
+.metric-card > *,
+.quote-card > *,
+.timeline-card > *,
+.panel-card > *,
+.pricing-card > *,
+.journey-card > *,
+.benefit-card > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- 3. Animated gradient on italic accents --------------------------- */
+.hero h1 em,
+.page-hero h1 em,
+.section h2 em,
+.highlight-block h2 em,
+.callout h2 em{
+  background: linear-gradient(
+    120deg,
+    var(--primary-2) 0%,
+    var(--primary) 30%,
+    var(--primary-deep) 50%,
+    var(--primary) 70%,
+    var(--primary-2) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradShift 8s linear infinite;
+}
+@keyframes gradShift{
+  to{ background-position: 200% 50%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero h1 em, .page-hero h1 em, .section h2 em{ animation: none; }
+}
+
+/* ---- 4. Keyword marquee ribbon ---------------------------------------- */
+.marquee{
+  position: relative;
+  overflow: hidden;
+  padding: 1.15rem 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 241, 244, .6) 0%,
+    rgba(255, 248, 250, .9) 100%
+  );
+  border-top: 1px solid rgba(238, 215, 223, .6);
+  border-bottom: 1px solid rgba(238, 215, 223, .6);
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+.marquee-track{
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: marqueeScroll 38s linear infinite;
+}
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+.marquee-item{
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--display-font);
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.marquee-item.is-italic{
+  font-style: italic;
+  color: var(--primary);
+}
+.marquee-item::before{
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: .45;
+  flex: 0 0 auto;
+}
+@keyframes marqueeScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+}
+
+/* ---- 5. Shimmering display numbers after reveal ----------------------- */
+.modern-stats .stat-cell h2,
+.metric-card strong{
+  background: linear-gradient(
+    100deg,
+    var(--primary) 0%,
+    var(--primary-2) 40%,
+    #fff 50%,
+    var(--primary-2) 60%,
+    var(--primary-deep) 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.2s var(--ease-out-quint);
+}
+.is-visible .modern-stats .stat-cell h2,
+.modern-stats.is-visible .stat-cell h2,
+[data-reveal].is-visible.metric-card strong,
+.is-visible .metric-card strong{
+  background-position: 100% 50%;
+}
+
+/* ---- 6. Button sheen on press ----------------------------------------- */
+.btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(164, 19, 60, .45);
+}
+
+/* ---- 7. Smooth cross-page view transitions (supported browsers) ------- */
+@view-transition{ navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root){
+  animation-duration: .45s;
+  animation-timing-function: cubic-bezier(.22,1,.36,1);
+}
+::view-transition-old(root){
+  animation-name: vtFadeOut;
+}
+::view-transition-new(root){
+  animation-name: vtFadeIn;
+}
+@keyframes vtFadeOut{
+  to{ opacity: 0; transform: translateY(-8px); }
+}
+@keyframes vtFadeIn{
+  from{ opacity: 0; transform: translateY(10px); }
+}
+
+/* ---- 8. Refined focus-within glow on input panels --------------------- */
+.footer-subscribe-row:focus-within{
+  border-color: rgba(255, 255, 255, .35);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, .06),
+    0 20px 40px rgba(0, 0, 0, .35);
+}
+
+/* ---- 9. Scroll-driven subtle hero zoom-out (reduces motion disables) -- */
+@supports (animation-timeline: scroll()){
+  @media (prefers-reduced-motion: no-preference){
+    .home-page .hero{
+      animation: heroScrollZoom linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 60vh;
+    }
+    @keyframes heroScrollZoom{
+      to{
+        filter: brightness(.85) saturate(1.05);
+      }
+    }
+  }
+}
+
+/* ---- 10. Link hover has subtle arrow appearance ----------------------- */
+.footer-contact-list a[href^="mailto"]::after,
+.footer-contact-list a[href*="contact"]::after{
+  content: "";
+  display: inline-block;
+  width: 0;
+  transition: width .3s var(--ease-out-quint);
+}
+.footer-contact-list a:hover{
+  letter-spacing: .002em;
+}
+
+/* ---- 11. Selection refined ------------------------------------------- */
+::selection{
+  background: var(--primary);
+  color: #fff;
+  text-shadow: none;
+}

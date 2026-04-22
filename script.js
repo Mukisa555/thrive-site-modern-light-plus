@@ -480,3 +480,67 @@ createChatbot();
   );
   sections.forEach(({ el }) => io.observe(el));
 })();
+
+/* ============================================================
+   SUPER POLISH — cursor spotlight + inject marquee ribbon
+   ============================================================ */
+(function polish() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Cursor-aware card spotlight ---------------------- */
+  const spotlightSelector = [
+    ".feature-card", ".audience-card", ".content-card",
+    ".trust-item", ".metric-card", ".quote-card",
+    ".timeline-card", ".panel-card", ".pricing-card",
+    ".journey-card", ".benefit-card",
+  ].join(",");
+
+  if (!prefersReduced && window.matchMedia("(hover: hover)").matches) {
+    document.addEventListener(
+      "pointermove",
+      (e) => {
+        const card = e.target.closest(spotlightSelector);
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      },
+      { passive: true }
+    );
+  }
+
+  /* ---------- Inject keyword marquee on the home page ---------- */
+  const isHome = document.body.classList.contains("home-page");
+  if (isHome) {
+    const trustStrip = document.querySelector(".trust-strip");
+    if (trustStrip && !document.querySelector(".marquee")) {
+      const words = [
+        ["Future-ready", true],
+        ["Human first", false],
+        ["Discovery", true],
+        ["Purpose", false],
+        ["Resilience", true],
+        ["World awareness", false],
+        ["Leadership", true],
+        ["Adaptability", false],
+        ["Digital fluency", true],
+        ["Built for schools", false],
+        ["Thrive", true],
+      ];
+      const buildList = () =>
+        words
+          .map(
+            ([w, italic]) =>
+              `<span class="marquee-item${italic ? " is-italic" : ""}">${w}</span>`
+          )
+          .join("");
+
+      const marquee = document.createElement("section");
+      marquee.className = "marquee";
+      marquee.setAttribute("aria-hidden", "true");
+      // Duplicate content so the loop is seamless
+      marquee.innerHTML = `<div class="marquee-track">${buildList()}${buildList()}</div>`;
+      trustStrip.after(marquee);
+    }
+  }
+})();
