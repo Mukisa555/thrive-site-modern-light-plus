@@ -1301,24 +1301,26 @@ p.eyebrow::before,
     padding:.75rem;
     border:1px solid rgba(238,215,223,.78);
     border-radius:18px;
-    .page-program .program-impact-clean .quote-card,
-    .page-program .program-impact-clean .panel-card{
-      border:none;
-      box-shadow:0 10px 24px rgba(96,25,44,.06);
-    }
-    .page-program .program-impact-clean .impact-list li + li{
-      border-top:none;
-    }
-    .page-program .program-impact-clean .impact-list li i{
-      border:none;
-      box-shadow:none;
-      background:transparent;
-    }
-    display:grid;
     grid-template-columns:1fr;
     gap:.25rem;
     overflow:visible;
     padding:0;
+  }
+  .nav-panel.is-open{
+    display:grid;
+  }
+  .page-program .program-impact-clean .quote-card,
+  .page-program .program-impact-clean .panel-card{
+    border:none;
+    box-shadow:0 10px 24px rgba(96,25,44,.06);
+  }
+  .page-program .program-impact-clean .impact-list li + li{
+    border-top:none;
+  }
+  .page-program .program-impact-clean .impact-list li i{
+    border:none;
+    box-shadow:none;
+    background:transparent;
   }
   .nav-links li{flex:initial}
   .nav-links a{
@@ -2436,23 +2438,11 @@ button:focus-visible,
 
 /* ---------- Chatbot launcher polish --------------------------------------- */
 .chatbot-launcher{
-  backdrop-filter: blur(8px);
-  transition: transform .35s var(--ease-spring), box-shadow .35s ease;
-}
-.chatbot-launcher::before{
-  content:"";
-  position:absolute;
-  inset:-4px;
-  border-radius:inherit;
-  background: var(--grad-brand);
-  filter: blur(14px);
-  opacity:.45;
-  z-index:-1;
-  animation: pulseDot 3s ease-in-out infinite;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 .chatbot-launcher:hover{
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 22px 40px rgba(128,15,47,.34);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(128,15,47,.32);
 }
 
 /* ---------- Responsive polish ---------------------------------------------*/

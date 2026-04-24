@@ -74,57 +74,75 @@ const WHATSAPP_TEXT = encodeURIComponent(
 const chatbotStyles = `
 .chatbot-launcher{
   position:fixed;
-  right:1rem;
-  bottom:4.35rem;
+  right:1.5rem;
+  bottom:5.5rem;
   z-index:1200;
   border:none;
   border-radius:999px;
-  padding:.9rem 1.1rem;
-  min-height:48px;
+  padding:.65rem 1.1rem .65rem .85rem;
+  min-height:44px;
   background:linear-gradient(135deg,var(--secondary-2),var(--primary-deep));
   color:#fff;
-  font-weight:800;
+  font-weight:700;
+  font-size:.88rem;
   letter-spacing:.02em;
-  box-shadow:0 14px 28px rgba(128,15,47,.24);
+  box-shadow:0 8px 24px rgba(128,15,47,.22);
   cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.chatbot-launcher-icon{
+  width:18px;
+  height:18px;
+  display:block;
+  flex-shrink:0;
+  opacity:.95;
 }
 .whatsapp-launcher{
   position:fixed;
-  right:1rem;
-  bottom:1rem;
+  right:1.5rem;
+  bottom:1.5rem;
   z-index:1201;
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  width:50px;
-  min-height:50px;
-  padding:0;
-  border-radius:50%;
+  gap:.45rem;
+  padding:.65rem 1.1rem .65rem .85rem;
+  min-height:44px;
+  border-radius:999px;
   text-decoration:none;
   color:#ffffff;
-  border:1px solid rgba(255,255,255,.35);
+  font-weight:700;
+  font-size:.88rem;
+  border:none;
   background:linear-gradient(135deg,#25D366,#128C7E);
-  box-shadow:0 14px 28px rgba(18,140,126,.26), inset 0 0 0 1px rgba(255,255,255,.12);
-  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow:0 8px 24px rgba(18,140,126,.26);
+  transition:transform .2s ease, box-shadow .2s ease;
+  white-space:nowrap;
 }
 .whatsapp-launcher .whatsapp-icon{
-  width:22px;
-  height:22px;
+  width:20px;
+  height:20px;
   display:block;
+  flex-shrink:0;
+}
+.whatsapp-label{
+  font-size:.88rem;
+  font-weight:700;
 }
 .whatsapp-launcher:hover{
   transform:translateY(-2px);
-  filter:saturate(1.06);
-  box-shadow:0 18px 34px rgba(18,140,126,.33), inset 0 0 0 1px rgba(255,255,255,.15);
+  box-shadow:0 14px 32px rgba(18,140,126,.34);
 }
 .whatsapp-launcher:focus-visible{
   outline:none;
-  box-shadow:0 0 0 3px rgba(255,255,255,.95),0 0 0 6px rgba(37,211,102,.45),0 14px 28px rgba(18,140,126,.26);
+  box-shadow:0 0 0 3px rgba(255,255,255,.95),0 0 0 5px rgba(37,211,102,.45);
 }
 .chatbot-panel{
   position:fixed;
-  right:1rem;
-  bottom:4.75rem;
+  right:1.5rem;
+  bottom:6.25rem;
   width:min(380px,calc(100vw - 2rem));
   height:520px;
   z-index:1200;
@@ -204,12 +222,10 @@ const chatbotStyles = `
   cursor:pointer;
 }
 @media (max-width:560px){
-  .chatbot-panel{height:68vh;bottom:4.45rem}
-  .chatbot-launcher{right:.8rem;bottom:4.1rem}
-  .whatsapp-launcher{
-    right:.8rem;
-    bottom:.8rem;
-  }
+  .chatbot-panel{height:68vh;bottom:4.25rem}
+  .chatbot-launcher{right:1rem;bottom:4.75rem;font-size:.82rem;padding:.6rem .9rem .6rem .75rem;min-height:40px;}
+  .whatsapp-launcher{right:1rem;bottom:1rem;padding:.6rem .6rem;min-height:40px;gap:0;}
+  .whatsapp-label{display:none;}
 }
 `;
 
@@ -249,7 +265,8 @@ function createWhatsAppLauncher() {
   whatsapp.rel = "noopener noreferrer";
   whatsapp.setAttribute("aria-label", "Chat with Thrive on WhatsApp");
   whatsapp.innerHTML =
-    '<svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.11 17.2c-.26-.13-1.52-.75-1.76-.83-.24-.09-.41-.13-.58.13-.17.26-.67.83-.82 1-.15.17-.31.2-.58.07-.26-.13-1.11-.41-2.11-1.31-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.41.11-.54.11-.11.26-.28.39-.41.13-.13.17-.22.26-.37.09-.15.04-.28-.02-.41-.07-.13-.58-1.4-.8-1.91-.21-.5-.43-.43-.58-.44-.15 0-.33-.01-.5-.01-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.55 1.07 2.72.13.17 1.84 2.81 4.46 3.94.62.27 1.11.44 1.49.57.63.2 1.2.17 1.66.1.51-.08 1.52-.62 1.73-1.22.22-.59.22-1.1.15-1.2-.06-.1-.24-.16-.5-.29z"/><path fill="currentColor" d="M16.03 3.2c-6.98 0-12.64 5.66-12.64 12.64 0 2.23.58 4.41 1.69 6.32L3.2 28.8l6.78-1.84a12.6 12.6 0 0 0 6.05 1.54h.01c6.98 0 12.64-5.66 12.64-12.64S23.01 3.2 16.03 3.2zm0 23.2h-.01a10.5 10.5 0 0 1-5.34-1.46l-.38-.23-4.02 1.09 1.07-3.92-.25-.4a10.5 10.5 0 1 1 8.93 4.92z"/></svg>';
+    '<svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.11 17.2c-.26-.13-1.52-.75-1.76-.83-.24-.09-.41-.13-.58.13-.17.26-.67.83-.82 1-.15.17-.31.2-.58.07-.26-.13-1.11-.41-2.11-1.31-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.41.11-.54.11-.11.26-.28.39-.41.13-.13.17-.22.26-.37.09-.15.04-.28-.02-.41-.07-.13-.58-1.4-.8-1.91-.21-.5-.43-.43-.58-.44-.15 0-.33-.01-.5-.01-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.55 1.07 2.72.13.17 1.84 2.81 4.46 3.94.62.27 1.11.44 1.49.57.63.2 1.2.17 1.66.1.51-.08 1.52-.62 1.73-1.22.22-.59.22-1.1.15-1.2-.06-.1-.24-.16-.5-.29z"/><path fill="currentColor" d="M16.03 3.2c-6.98 0-12.64 5.66-12.64 12.64 0 2.23.58 4.41 1.69 6.32L3.2 28.8l6.78-1.84a12.6 12.6 0 0 0 6.05 1.54h.01c6.98 0 12.64-5.66 12.64-12.64S23.01 3.2 16.03 3.2zm0 23.2h-.01a10.5 10.5 0 0 1-5.34-1.46l-.38-.23-4.02 1.09 1.07-3.92-.25-.4a10.5 10.5 0 1 1 8.93 4.92z"/></svg>' +
+    '<span class="whatsapp-label">WhatsApp</span>';
   document.body.appendChild(whatsapp);
 }
 
@@ -259,7 +276,7 @@ function createChatbot() {
   const launcher = document.createElement("button");
   launcher.className = "chatbot-launcher";
   launcher.type = "button";
-  launcher.textContent = "Chat with Thrive";
+  launcher.innerHTML = '<svg class="chatbot-launcher-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat with Thrive';
 
   const panel = document.createElement("section");
   panel.className = "chatbot-panel";
