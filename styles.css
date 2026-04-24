@@ -1297,9 +1297,9 @@ p.eyebrow::before,
     display:none;
     position:absolute;
     top:calc(100% + .5rem);
-    left:0;
     right:0;
-    width:100%;
+    left:auto;
+    width:52%;
     z-index:1100;
     border:1px solid rgba(238,215,223,.78);
     border-radius:18px;
