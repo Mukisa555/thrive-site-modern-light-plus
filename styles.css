@@ -1333,7 +1333,17 @@ p.eyebrow::before,
     box-shadow:none;
     background:transparent;
   }
-  .nav-links li{flex:initial}
+  .nav-links{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    gap:0;
+    width:100%;
+  }
+  .nav-links li{
+    flex:none;
+    width:100%;
+  }
   .nav-links a{
     width:100%;
     min-height:48px;
