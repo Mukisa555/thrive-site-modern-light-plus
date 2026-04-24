@@ -3,6 +3,9 @@ const navPanel = document.querySelector(".nav-panel");
 const navContainer = document.querySelector(".nav-container");
 const mobileBreakpoint = window.matchMedia("(max-width: 820px)");
 
+// Remove any legacy marquee ribbon that may persist from older cached scripts.
+document.querySelectorAll(".marquee").forEach((el) => el.remove());
+
 if (navToggle && navPanel) {
   const setMenuState = (isOpen) => {
     navPanel.classList.toggle("is-open", isOpen);
@@ -57,12 +60,22 @@ const CHAT_API_URL =
   window.CHATBOT_API_URL ||
   (window.CHATBOT_API_BASE ? `${window.CHATBOT_API_BASE}/api/chat` : null);
 const CHAT_HEADERS = CHATBOT_CONFIG.headers || {};
+const WHATSAPP_PHONE_RAW =
+  (window.WHATSAPP_CONFIG && window.WHATSAPP_CONFIG.phone) ||
+  window.WHATSAPP_PHONE ||
+  CHATBOT_CONFIG.whatsappPhone ||
+  "+256774292922";
+const WHATSAPP_PHONE = String(WHATSAPP_PHONE_RAW).replace(/\D/g, "");
+const WHATSAPP_TEXT = encodeURIComponent(
+  (window.WHATSAPP_CONFIG && window.WHATSAPP_CONFIG.message) ||
+    "Hello Thrive Path, I would like to learn more about the program."
+);
 
 const chatbotStyles = `
 .chatbot-launcher{
   position:fixed;
   right:1rem;
-  bottom:1rem;
+  bottom:4.35rem;
   z-index:1200;
   border:none;
   border-radius:999px;
@@ -74,6 +87,39 @@ const chatbotStyles = `
   letter-spacing:.02em;
   box-shadow:0 14px 28px rgba(128,15,47,.24);
   cursor:pointer;
+}
+.whatsapp-launcher{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  z-index:1201;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:50px;
+  min-height:50px;
+  padding:0;
+  border-radius:50%;
+  text-decoration:none;
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,.35);
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  box-shadow:0 14px 28px rgba(18,140,126,.26), inset 0 0 0 1px rgba(255,255,255,.12);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.whatsapp-launcher .whatsapp-icon{
+  width:22px;
+  height:22px;
+  display:block;
+}
+.whatsapp-launcher:hover{
+  transform:translateY(-2px);
+  filter:saturate(1.06);
+  box-shadow:0 18px 34px rgba(18,140,126,.33), inset 0 0 0 1px rgba(255,255,255,.15);
+}
+.whatsapp-launcher:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(255,255,255,.95),0 0 0 6px rgba(37,211,102,.45),0 14px 28px rgba(18,140,126,.26);
 }
 .chatbot-panel{
   position:fixed;
@@ -159,7 +205,11 @@ const chatbotStyles = `
 }
 @media (max-width:560px){
   .chatbot-panel{height:68vh;bottom:4.45rem}
-  .chatbot-launcher{right:.8rem;bottom:.8rem}
+  .chatbot-launcher{right:.8rem;bottom:4.1rem}
+  .whatsapp-launcher{
+    right:.8rem;
+    bottom:.8rem;
+  }
 }
 `;
 
@@ -184,6 +234,23 @@ function loadChatHistory() {
 
 function saveChatHistory(history) {
   sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(history.slice(-20)));
+}
+
+function createWhatsAppLauncher() {
+  if (!WHATSAPP_PHONE) return;
+
+  const existing = document.querySelector(".whatsapp-launcher");
+  if (existing) return;
+
+  const whatsapp = document.createElement("a");
+  whatsapp.className = "whatsapp-launcher";
+  whatsapp.href = `https://wa.me/${WHATSAPP_PHONE}?text=${WHATSAPP_TEXT}`;
+  whatsapp.target = "_blank";
+  whatsapp.rel = "noopener noreferrer";
+  whatsapp.setAttribute("aria-label", "Chat with Thrive on WhatsApp");
+  whatsapp.innerHTML =
+    '<svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.11 17.2c-.26-.13-1.52-.75-1.76-.83-.24-.09-.41-.13-.58.13-.17.26-.67.83-.82 1-.15.17-.31.2-.58.07-.26-.13-1.11-.41-2.11-1.31-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.41.11-.54.11-.11.26-.28.39-.41.13-.13.17-.22.26-.37.09-.15.04-.28-.02-.41-.07-.13-.58-1.4-.8-1.91-.21-.5-.43-.43-.58-.44-.15 0-.33-.01-.5-.01-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.55 1.07 2.72.13.17 1.84 2.81 4.46 3.94.62.27 1.11.44 1.49.57.63.2 1.2.17 1.66.1.51-.08 1.52-.62 1.73-1.22.22-.59.22-1.1.15-1.2-.06-.1-.24-.16-.5-.29z"/><path fill="currentColor" d="M16.03 3.2c-6.98 0-12.64 5.66-12.64 12.64 0 2.23.58 4.41 1.69 6.32L3.2 28.8l6.78-1.84a12.6 12.6 0 0 0 6.05 1.54h.01c6.98 0 12.64-5.66 12.64-12.64S23.01 3.2 16.03 3.2zm0 23.2h-.01a10.5 10.5 0 0 1-5.34-1.46l-.38-.23-4.02 1.09 1.07-3.92-.25-.4a10.5 10.5 0 1 1 8.93 4.92z"/></svg>';
+  document.body.appendChild(whatsapp);
 }
 
 function createChatbot() {
@@ -283,6 +350,7 @@ function createChatbot() {
   });
 }
 
+createWhatsAppLauncher();
 createChatbot();
 
 /* ============================================================
@@ -509,38 +577,4 @@ createChatbot();
     );
   }
 
-  /* ---------- Inject keyword marquee on the home page ---------- */
-  const isHome = document.body.classList.contains("home-page");
-  if (isHome) {
-    const trustStrip = document.querySelector(".trust-strip");
-    if (trustStrip && !document.querySelector(".marquee")) {
-      const words = [
-        ["Future-ready", true],
-        ["Human first", false],
-        ["Discovery", true],
-        ["Purpose", false],
-        ["Resilience", true],
-        ["World awareness", false],
-        ["Leadership", true],
-        ["Adaptability", false],
-        ["Digital fluency", true],
-        ["Built for schools", false],
-        ["Thrive", true],
-      ];
-      const buildList = () =>
-        words
-          .map(
-            ([w, italic]) =>
-              `<span class="marquee-item${italic ? " is-italic" : ""}">${w}</span>`
-          )
-          .join("");
-
-      const marquee = document.createElement("section");
-      marquee.className = "marquee";
-      marquee.setAttribute("aria-hidden", "true");
-      // Duplicate content so the loop is seamless
-      marquee.innerHTML = `<div class="marquee-track">${buildList()}${buildList()}</div>`;
-      trustStrip.after(marquee);
-    }
-  }
 })();
