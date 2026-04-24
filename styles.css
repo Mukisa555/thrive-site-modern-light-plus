@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..800;1,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root{
   --primary:#A4133C;
@@ -28,7 +28,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto}
 body{
-  font-family:'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
   font-feature-settings:'ss01','ss02','cv11','liga','kern';
   background:
     radial-gradient(circle at top left, rgba(201,24,74,.12), transparent 28%),
@@ -1974,7 +1974,7 @@ p.eyebrow::before,
    ========================================================================= */
 
 :root{
-  --display-font: 'Instrument Serif', 'Fraunces', 'Times New Roman', Georgia, serif;
+  --display-font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --ease-out-quint: cubic-bezier(.22,1,.36,1);
   --ease-spring: cubic-bezier(.34,1.56,.64,1);
@@ -1997,6 +1997,9 @@ body{
   font-feature-settings: "ss01","ss02","cv11","liga","kern";
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+}
+button,input,textarea,select{
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 }
 
 /* ---------- Typography refresh -------------------------------------------- */
@@ -2034,7 +2037,7 @@ body{
   font-weight: 400;
 }
 h3,h4{
-  font-family:'Inter Tight','Inter',sans-serif;
+  font-family:'Manrope',sans-serif;
   font-weight:600;
   letter-spacing:-.018em;
 }
@@ -3318,9 +3321,8 @@ html{ scroll-padding-top: 140px; }
 }
 
 /* =========================================================================
-   TYPOGRAPHY v2 — Instrument Serif + Inter Tight normalization
-   Instrument Serif ships weight 400 only; everywhere it's used as the
-   display font, force 400 and let large sizes carry the weight.
+   TYPOGRAPHY v2 — Manrope normalization
+   Manrope is used as the primary typeface across body and display styles.
    ========================================================================= */
 
 /* Any display-font usage: force 400 (synthetic bold looks ugly) */
@@ -3355,7 +3357,7 @@ html{ scroll-padding-top: 140px; }
   letter-spacing: -.02em;
 }
 
-/* Pullquote: Instrument Serif italic quote mark reads best at 400 */
+/* Pullquote */
 .highlight-block.pullquote .quote-mark{
   font-size: 8rem;
   line-height: .5;
@@ -3367,7 +3369,7 @@ html{ scroll-padding-top: 140px; }
 
 /* Benefit card heading back to sans (cleaner) */
 .benefit-card h3{
-  font-family: 'Inter Tight','Inter',sans-serif !important;
+  font-family: 'Manrope',sans-serif !important;
   font-weight: 600 !important;
   font-size: 1.2rem;
 }
@@ -3388,11 +3390,11 @@ p.eyebrow{
   font-weight: 500 !important;
 }
 
-/* Navigation & buttons: Inter Tight already via body; ensure weight */
+/* Navigation & buttons: match Owner.One style with Manrope */
 .nav-links a,
 .btn,
 .nav-cta .btn-primary{
-  font-family: 'Inter Tight','Inter',sans-serif;
+  font-family: 'Manrope',sans-serif;
   font-weight: 600;
   letter-spacing: -.005em;
 }
@@ -3411,9 +3413,9 @@ p.eyebrow{
   letter-spacing: .16em !important;
 }
 
-/* Anchor-nav chips: modern Inter Tight */
+/* Anchor-nav chips: Manrope */
 .anchor-nav a{
-  font-family: 'Inter Tight','Inter',sans-serif;
+  font-family: 'Manrope',sans-serif;
   font-weight: 600;
   letter-spacing: -.005em;
 }
@@ -3433,7 +3435,7 @@ p.eyebrow{
 .table-card h3,
 .panel-card h3,
 .journey-body h3{
-  font-family: 'Inter Tight','Inter',sans-serif;
+  font-family: 'Manrope',sans-serif;
   font-weight: 600;
   letter-spacing: -.015em;
 }
@@ -3720,4 +3722,226 @@ body::before{
   background: var(--primary);
   color: #fff;
   text-shadow: none;
+}
+
+/* =========================================================================
+   PARTNERSHIPS INFOGRAPHICS
+   Scoped enhancements that preserve the existing design system.
+   ========================================================================= */
+.page-partnerships .infographic-section .section-heading{
+  max-width: 860px;
+}
+.page-partnerships .infographic-callout{
+  border-top: 1px solid rgba(164, 19, 60, .12);
+  border-bottom: 1px solid rgba(164, 19, 60, .12);
+}
+.page-partnerships .infographic-callout .section-heading{
+  display: grid;
+  justify-items: center;
+  gap: .75rem;
+}
+.page-partnerships .infographic-callout .btn{
+  margin-top: .35rem;
+}
+.page-partnerships .infographic-kpi-grid{
+  margin-bottom: 1.25rem;
+}
+.page-partnerships .infographic-kpi{
+  display: grid;
+  gap: .45rem;
+  align-content: start;
+}
+.page-partnerships .infographic-kpi .kpi-label{
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.page-partnerships .infographic-kpi .kpi-value{
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+  line-height: .95;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -.03em;
+}
+.page-partnerships .infographic-kpi .kpi-note{
+  margin: 0;
+  font-size: .95rem;
+  color: var(--text);
+}
+
+.page-partnerships .infographic-flow-wrap{
+  padding: 1.3rem;
+}
+.page-partnerships .infographic-flow{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .9rem;
+}
+.page-partnerships .flow-node{
+  position: relative;
+  background: linear-gradient(165deg, var(--surface), var(--surface-2));
+  border: 1px solid rgba(164, 19, 60, .14);
+  border-radius: 16px;
+  padding: 1rem .95rem;
+  display: grid;
+  gap: .55rem;
+  min-height: 190px;
+}
+.page-partnerships .flow-node:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(164,19,60,.45), rgba(164,19,60,.1));
+}
+.page-partnerships .flow-node .flow-step{
+  width: fit-content;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  padding: .2rem .42rem;
+  border-radius: 999px;
+  color: var(--primary-deep);
+  background: rgba(164, 19, 60, .11);
+}
+.page-partnerships .flow-node i{
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(164, 19, 60, .09);
+  color: var(--primary);
+  font-size: 1rem;
+}
+.page-partnerships .flow-node h3{
+  margin: 0;
+  font-size: 1rem;
+}
+.page-partnerships .flow-node p{
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.page-partnerships .infographic-two-column{
+  align-items: stretch;
+}
+.page-partnerships .infographic-panel{
+  display: grid;
+  gap: .9rem;
+}
+.page-partnerships .mix-bars{
+  margin-top: .25rem;
+  display: grid;
+  gap: .95rem;
+  padding: .2rem 0;
+}
+.page-partnerships .mix-row{
+  display: grid;
+  gap: .45rem;
+}
+.page-partnerships .mix-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .7rem;
+}
+.page-partnerships .mix-row{
+  align-items: center;
+}
+.page-partnerships .mix-label{
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.page-partnerships .mix-track{
+  position: relative;
+  height: .78rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(164, 19, 60, .18), rgba(164, 19, 60, .10));
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(164, 19, 60, .08);
+}
+.page-partnerships .mix-fill{
+  display: block;
+  width: var(--value);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary-2), var(--primary));
+  box-shadow: 0 6px 16px rgba(164, 19, 60, .22);
+}
+.page-partnerships .mix-value{
+  font-size: .84rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(120deg, var(--primary), var(--primary-deep));
+  border-radius: 999px;
+  padding: .2rem .5rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.page-partnerships .infographic-outcome-card{
+  align-content: start;
+}
+.page-partnerships .outcome-ring{
+  width: min(220px, 100%);
+  aspect-ratio: 1 / 1;
+  margin: .15rem auto .25rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    conic-gradient(var(--primary) 0 295deg, rgba(164, 19, 60, .15) 295deg 360deg);
+  padding: 14px;
+}
+.page-partnerships .outcome-ring-core{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid rgba(164, 19, 60, .12);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: .18rem;
+}
+.page-partnerships .outcome-ring-core strong{
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1;
+  color: var(--primary);
+}
+.page-partnerships .outcome-ring-core span{
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.page-partnerships .outcome-metrics{
+  margin-top: .1rem;
+}
+
+@media (max-width: 980px){
+  .page-partnerships .infographic-flow{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .page-partnerships .flow-node:not(:last-child)::after{
+    display: none;
+  }
+}
+@media (max-width: 640px){
+  .page-partnerships .infographic-flow{
+    grid-template-columns: 1fr;
+  }
+  .page-partnerships .mix-head{
+    align-items: center;
+  }
 }
