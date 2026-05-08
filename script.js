@@ -595,3 +595,120 @@ createChatbot();
   }
 
 })();
+
+/* ============================================================
+   Team carousel (auto slider + dots)
+   ============================================================ */
+(function teamCarousel() {
+  const carousel = document.querySelector("[data-team-carousel]");
+  const track = carousel?.querySelector(".team-grid");
+  const dotsWrap = carousel?.querySelector(".team-carousel-dots");
+  const prevBtn = carousel?.querySelector(".team-carousel-prev");
+  const nextBtn = carousel?.querySelector(".team-carousel-next");
+  if (!carousel || !track || !dotsWrap || !prevBtn || !nextBtn) return;
+
+  const cards = Array.from(track.querySelectorAll(".team-member-card"));
+  if (!cards.length) return;
+
+  let activePage = 0;
+  let timer = null;
+  const intervalMs = 4200;
+  let perView = 3;
+  let pages = [];
+  let dots = [];
+
+  const setActivePage = (index) => {
+    activePage = Math.max(0, Math.min(index, pages.length - 1));
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === activePage);
+      dot.setAttribute("aria-current", i === activePage ? "true" : "false");
+    });
+  };
+
+  const goToPage = (pageIndex, smooth = false) => {
+    const safePage = Math.max(0, Math.min(pageIndex, pages.length - 1));
+    const cardIndex = pages[safePage] ?? 0;
+    const left = cards[cardIndex]?.offsetLeft ?? 0;
+    track.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
+    setActivePage(safePage);
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    timer = window.setInterval(() => {
+      const next = activePage >= pages.length - 1 ? 0 : activePage + 1;
+      goToPage(next, true);
+    }, intervalMs);
+  };
+
+  const stopAuto = () => {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const syncPageFromScroll = () => {
+    const currentLeft = track.scrollLeft;
+    let nearestPage = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+    pages.forEach((cardIndex, pageIndex) => {
+      const distance = Math.abs((cards[cardIndex]?.offsetLeft ?? 0) - currentLeft);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestPage = pageIndex;
+      }
+    });
+    setActivePage(nearestPage);
+  };
+
+  const rebuild = () => {
+    const width = window.innerWidth;
+    perView = width <= 820 ? 1 : width <= 1024 ? 2 : 3;
+    pages = [];
+    for (let i = 0; i < cards.length; i += perView) {
+      pages.push(i);
+    }
+
+    dotsWrap.innerHTML = "";
+    dots = pages.map((cardIndex, pageIndex) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "team-carousel-dot";
+      dot.setAttribute("aria-label", `Go to team slide ${pageIndex + 1}`);
+      dot.addEventListener("click", () => goToPage(pageIndex, true));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    const clamped = Math.min(activePage, pages.length - 1);
+    goToPage(clamped, false);
+  };
+
+  track.addEventListener("scroll", () => {
+    window.requestAnimationFrame(syncPageFromScroll);
+  }, { passive: true });
+
+  carousel.addEventListener("mouseenter", stopAuto);
+  carousel.addEventListener("mouseleave", startAuto);
+  carousel.addEventListener("focusin", stopAuto);
+  carousel.addEventListener("focusout", () => {
+    if (!carousel.contains(document.activeElement)) {
+      startAuto();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    const next = activePage <= 0 ? pages.length - 1 : activePage - 1;
+    goToPage(next, true);
+  });
+  nextBtn.addEventListener("click", () => {
+    const next = activePage >= pages.length - 1 ? 0 : activePage + 1;
+    goToPage(next, true);
+  });
+
+  window.addEventListener("resize", rebuild);
+
+  rebuild();
+  startAuto();
+})();
