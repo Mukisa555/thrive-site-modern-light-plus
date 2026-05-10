@@ -463,19 +463,6 @@ createChatbot();
     );
   }
 
-  /* ---------- Scroll progress bar ------------------------------- */
-  const progress = document.createElement("div");
-  progress.className = "scroll-progress";
-  document.body.appendChild(progress);
-  const updateProgress = () => {
-    const h = document.documentElement;
-    const max = h.scrollHeight - h.clientHeight;
-    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
-    progress.style.setProperty("--progress", pct + "%");
-  };
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  updateProgress();
-
   /* ---------- Count-up for trust / metric numbers --------------- */
   const numberEls = document.querySelectorAll(".trust-item h2, .metric-card strong");
   const animateCount = (el) => {
