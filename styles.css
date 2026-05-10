@@ -5236,3 +5236,303 @@ p.eyebrow{
   transform: none !important;
   filter: none !important;
 }
+
+/* Global mobile rhythm and icon/text alignment refinements */
+@media (max-width: 900px){
+  .section{
+    padding: 2.8rem 0;
+  }
+  .section-heading{
+    margin-bottom: 1.25rem;
+  }
+  .section h2{
+    line-height: 1.2;
+  }
+  .section p{
+    line-height: 1.7;
+  }
+
+  .panel-card,
+  .feature-card,
+  .audience-card,
+  .content-card,
+  .quote-card,
+  .pricing-card,
+  .metric-card,
+  .timeline-card,
+  .table-card,
+  .mini-card{
+    padding: 1.25rem;
+    gap: .72rem;
+  }
+
+  .two-column,
+  .content-grid,
+  .metric-grid,
+  .timeline-grid,
+  .three-column,
+  .card-grid.three,
+  .card-grid.four{
+    gap: .95rem;
+  }
+
+  .card-actions{
+    gap: .72rem;
+    padding-top: .35rem;
+  }
+  .btn,
+  .btn-solid,
+  .btn-outline,
+  .nav-cta .btn-primary{
+    min-height: 48px;
+    padding: .82rem 1rem;
+  }
+
+  .page-partnerships .pricing-grid,
+  .page-packages .package-pricing-grid{
+    grid-template-columns: 1fr;
+    gap: .95rem;
+  }
+  .page-partnerships .pricing-showcase .pricing-card,
+  .page-packages .package-pricing-grid .pricing-card,
+  .page-packages .package-plan-card{
+    padding: 1.2rem;
+  }
+
+  .page-impact .impact-list li,
+  .page-program .impact-list li,
+  .page-problem .impact-list li,
+  .page-about .list-modern-about li,
+  .page-partnerships .pricing-points li,
+  .page-partnerships .section-light .list-modern li,
+  .page-partnerships .list-modern li,
+  .page-packages .package-pricing-grid .pricing-points li,
+  .program-adds-list li,
+  .page-contact .split-card--copy .list li,
+  .footer-contact-list li{
+    gap: .75rem;
+    align-items: flex-start;
+    line-height: 1.58;
+  }
+
+  .page-impact .impact-list li i,
+  .page-program .impact-list li i,
+  .page-problem .impact-list li i{
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+    margin-top: .12rem;
+    font-size: .76rem;
+  }
+  .page-about .list-modern-about li i,
+  .page-partnerships .pricing-points li i,
+  .page-partnerships .section-light .list-modern li i,
+  .page-packages .package-pricing-grid .pricing-points li i,
+  .page-packages .package-inclusions-grid .content-card h3 i{
+    width: 16px;
+    flex: 0 0 16px;
+    margin-top: .14rem;
+  }
+  .page-partnerships .list-modern li,
+  .page-packages .package-pricing-grid .pricing-points li{
+    grid-template-columns: 1rem 1fr;
+    column-gap: .72rem;
+  }
+
+  .callout-actions,
+  .hero-actions{
+    gap: .72rem;
+  }
+  .callout-actions .btn,
+  .hero-actions .btn,
+  .card-actions .btn,
+  .page-partnerships .pricing-actions .btn{
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px){
+  .container{
+    width: calc(100% - 1.5rem);
+  }
+  .section{
+    padding: 2.2rem 0;
+  }
+  .section-heading{
+    margin-bottom: 1rem;
+  }
+  .section h2{
+    font-size: clamp(1.2rem, 5.4vw, 1.55rem);
+    line-height: 1.24;
+  }
+  .section p,
+  .panel-card li,
+  .list li{
+    font-size: .95rem;
+    line-height: 1.65;
+  }
+
+  .panel-card,
+  .feature-card,
+  .audience-card,
+  .content-card,
+  .quote-card,
+  .pricing-card,
+  .metric-card,
+  .timeline-card,
+  .table-card,
+  .mini-card{
+    padding: 1.08rem;
+    border-radius: 16px;
+  }
+
+  .split-card,
+  .page-packages .package-highlight-card,
+  .page-packages .package-comparison-card,
+  .page-packages .package-cta-card,
+  .page-partnerships .pricing-showcase .pricing-card{
+    padding: 1.08rem;
+  }
+
+  .price{
+    line-height: 1.08;
+  }
+  .page-packages .package-pricing-grid .price,
+  .page-partnerships .pricing-showcase .price{
+    margin: .58rem 0 .4rem;
+  }
+
+  .page-impact .impact-list li,
+  .page-program .impact-list li,
+  .page-problem .impact-list li,
+  .page-about .list-modern-about li,
+  .page-partnerships .pricing-points li,
+  .page-partnerships .section-light .list-modern li,
+  .program-adds-list li{
+    padding: .56rem 0;
+    gap: .68rem;
+  }
+
+  .page-partnerships .pricing-footer,
+  .page-packages .package-pricing-grid .pricing-footer{
+    margin-top: .72rem;
+    padding-top: .72rem;
+  }
+  .page-partnerships .pricing-actions,
+  .page-packages .package-pricing-grid .pricing-actions{
+    padding-top: .72rem;
+  }
+}
+
+/* Precision pass: normalize icon/text rhythm for mixed list patterns */
+@media (max-width: 900px){
+  .pricing-chip,
+  .price-note,
+  .package-mini-label{
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    line-height: 1.45;
+  }
+  .pricing-chip i,
+  .price-note i,
+  .package-mini-label i{
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .feature-card h3,
+  .audience-card h3,
+  .content-card h3,
+  .quote-card h3,
+  .pricing-card h3,
+  .timeline-card h3,
+  .table-card h3{
+    margin-bottom: .62rem;
+    line-height: 1.3;
+  }
+
+  .checklist{
+    gap: .7rem;
+  }
+  .checklist li{
+    padding-left: 2.05rem;
+    line-height: 1.6;
+  }
+  .checklist li::before{
+    width: 20px;
+    height: 20px;
+    top: .3rem;
+  }
+  .checklist li::after{
+    left: 6px;
+    top: .56rem;
+  }
+
+  .cta-ribbon{
+    margin: 1.35rem 0;
+    padding: 2.25rem 0;
+  }
+  .cta-ribbon-inner{
+    gap: 1rem;
+  }
+  .cta-ribbon h3{
+    max-width: none;
+    line-height: 1.18;
+  }
+  .cta-ribbon-actions{
+    width: 100%;
+    justify-content: flex-start;
+    gap: .68rem;
+  }
+  .cta-ribbon-actions .btn,
+  .cta-ribbon-actions .btn-ghost-light{
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .icon-circle{
+    margin-bottom: .78rem;
+  }
+  .program-adds-list li{
+    gap: .78rem;
+    line-height: 1.55;
+  }
+  .program-adds-icon{
+    width: 1.95rem;
+    height: 1.95rem;
+    flex-basis: 1.95rem;
+    margin-top: .08rem;
+  }
+}
+
+@media (max-width: 640px){
+  .pricing-chip,
+  .price-note,
+  .package-mini-label{
+    gap: .38rem;
+    font-size: .84rem;
+  }
+  .page-packages .package-pricing-grid .price-note{
+    margin-bottom: .64rem;
+  }
+
+  .page-packages .package-inclusions-grid .content-card h3 i{
+    margin-right: .35rem;
+  }
+
+  .page-packages .package-pricing-grid .pricing-points{
+    gap: .42rem;
+  }
+  .page-packages .package-pricing-grid .pricing-points li{
+    gap: .5rem;
+  }
+
+  .footer-social a{
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .footer-links{
+    gap: .55rem;
+  }
+}
